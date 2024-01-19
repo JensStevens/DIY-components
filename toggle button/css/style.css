@@ -1,0 +1,44 @@
+:root {
+    --toggle-border: #1e1e1e;
+    --toggle-active: #c7c7c7;
+    --toggle-inactive: #4c4c4c;
+  }
+  
+  body {
+    color: var(--toggle-active);
+    background-color: var(--toggle-border);
+    font-size: 1rem;
+  }
+
+
+.toggle-container {
+    margin: 100px auto;
+    border: 2px solid var(--toggle-inactive);
+    width: 94px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    scale: 1;
+    padding: 3px;
+    cursor: pointer;
+  }
+  
+  #toggle-input {
+    display: none;
+  }
+  
+  label.toggle-switch {
+    display: inline-block;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    background-color: var(--toggle-inactive);
+    border: 2px solid var(--toggle-border);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #toggle-input:checked + label.toggle-switch {
+    transform: translateX(40px);
+    background: var(--toggle-active);
+  }
