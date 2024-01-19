@@ -13,8 +13,8 @@
 
 .toggle-container {
     margin: 100px auto;
-    border: 2px solid var(--toggle-inactive);
-    width: 94px;
+    border: 4px solid var(--toggle-active);
+    width: 95px;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
     height: 50px;
     width: 50px;
     background-color: var(--toggle-inactive);
-    border: 2px solid var(--toggle-border);
+    border: 3px solid var(--toggle-border);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
