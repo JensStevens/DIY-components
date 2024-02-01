@@ -58,6 +58,8 @@ for (let i = 0; i < controls.length; i++) {
   controls[i].style.marginBottom = "0";
 }
 
+cover.style.height = "70px";
+
 artistTitleContainer.style.opacity = "0";
 progressContainer.style.opacity = "0";
 
@@ -76,6 +78,7 @@ function changeSong() {
   for (let i = 0; i < controls.length; i++) {
     controls[i].style.marginBottom = "16px";
   }
+  cover.style.height = "90px";
 }
 
 rewind.addEventListener("click", function () {
@@ -108,12 +111,19 @@ play.addEventListener("click", function () {
     for (let i = 0; i < controls.length; i++) {
       controls[i].style.marginBottom = "16px";
     }
+    cover.style.height = "90px";
   } else {
     audio.pause();
     play.style.backgroundImage = "url(../assets/img/play.png)";
     play.style.scale = "1";
     play.classList.remove("playing");
     play.classList.add("pause");
+    progressContainer.style.opacity = "0";
+    artistTitleContainer.style.opacity = "0";
+    for (let i = 0; i < controls.length; i++) {
+      controls[i].style.marginBottom = "0";
+    }
+    cover.style.height = "70px";
   }
 });
 

@@ -1,14 +1,15 @@
 :root {
-    --play-button-size: 35px;
-    --control-button-size: 25px;
-    --shuffle-button-size: 15px;
+  --play-button-size: 35px;
+  --control-button-size: 25px;
+  --shuffle-button-size: 15px;
 }
 
 body {
   background-color: #1e1e1e;
   height: 100vh;
   position: relative;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
 }
 
@@ -25,6 +26,7 @@ body {
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: height 0.3s ease;
 }
 
 #audio-player-controls {
@@ -73,7 +75,8 @@ body {
   cursor: pointer;
   filter: invert(100%) drop-shadow(0 2px 0.8px rgba(0, 0, 0, 0.5));
   opacity: 0.8;
-  transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease, margin 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease,
+    margin 0.3s ease;
   margin-bottom: 16px;
 }
 
@@ -85,59 +88,58 @@ body {
 }
 
 .progress {
-    width: 100%;
-    height: 3px;
-    border-radius: 10px;
-    background-color: rgba(204, 204, 204, 0.5);
-    margin-top: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: rgba(204, 204, 204, 0.5);
+  margin-top: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .progress-bar {
-    border-radius: 10px;
-    width: 0;
-    height: 100%;
-    background-color: #ffffff;
+  border-radius: 10px;
+  width: 0;
+  height: 100%;
+  background-color: #ffffff;
 }
 
-#current-time, #total-time {
-    margin: 10px 10px 0;
-    color:  rgba(204, 204, 204);
-    font-size: 0.5rem;
+#current-time,
+#total-time {
+  margin: 10px 10px 0;
+  color: rgba(204, 204, 204);
+  font-size: 0.5rem;
 }
 
 #progress-container {
-    left: calc(50% - 40%);
-    bottom: 5px;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
+  left: calc(50% - 40%);
+  bottom: 5px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }
 
 #artist-title-container {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 5px;
-    left: calc(50% - 40%);
-    bottom: 20px;
-    color:  rgba(204, 204, 204);
-    font-size: 0.6rem;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 5px;
+  left: calc(50% - 40%);
+  bottom: 21px;
+  color: rgba(204, 204, 204);
+  font-size: 0.6rem;
+  transition: opacity 0.3s ease;
 }
 
 #artist {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #artist::after {
-    content: "-";
-    margin: 0 2px;
+  content: "-";
+  margin: 0 2px;
 }
-
-
