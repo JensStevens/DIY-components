@@ -7,7 +7,6 @@ body {
 #audio-player {
     position: absolute;
     overflow: hidden;
-    cursor: pointer;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,41 +27,43 @@ body {
     height: 100%;
     padding: 0 40px;
     z-index: 10;
-    backdrop-filter: blur(0.5px) brightness(0.75);
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  }
+
+  #audio-player-controls:has(.control-button:hover) {
+    backdrop-filter: blur(0.5px);
+    background-color: rgba(0, 0, 0, 0.5);
+
   }
 
   #play {
-    filter: invert(100%);
     width: 48px;
     height: 48px;
     background-image: url(../assets/img/play.png);
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-  }
-
-  #play:hover {
-    opacity: 1;
   }
 
   #rwd,
   #fwd {
-    filter: invert(100%);
     width: 35px;
     height: 35px;
     background-image: url(../assets/img/ffwd.png);
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
   }
 
   #rwd {
     transform: rotate(180deg);
   }
 
-  #rwd:hover,
-  #fwd:hover {
+  .control-button {
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    filter: invert(90%);
+    opacity: 0.8;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+
+  .control-button:hover {
     opacity: 1;
+    filter: invert(100%);
   }

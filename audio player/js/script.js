@@ -15,7 +15,7 @@ const song = [
     title: "6 God",
     artist: "Drake",
     url: "../assets/audio/6God.mp3",
-    cover: "../assets/img/IYRTITL.jpg",
+    cover: "../assets/img/ifyou.png",
   },
   {
     title: "FML (O.G. Version Feat. The Weeknd, Bon Iver & Travis Scott)",
@@ -27,7 +27,7 @@ const song = [
     title: "Days In The East",
     artist: "Drake",
     url: "../assets/audio/DaysInTheEast.mp3",
-    cover: "../assets/img/IYRTITL.jpg",
+    cover: "../assets/img/daysITE.jpeg",
   },
   {
     title: "Drugs You Should Try",
