@@ -55,8 +55,9 @@ rewind.addEventListener("click", function () {
   cover.style.backgroundImage = `url(${song[currentSong].cover})`;
   audio.play();
   play.style.backgroundImage = "url(../assets/img/pause.png)";
-  play.style.width = "45px";
-  play.style.height = "45px";
+  play.style.scale = "1.3";
+  play.classList.add("playing");
+  play.classList.remove("pause");
 });
 
 forward.addEventListener("click", function () {
@@ -69,21 +70,24 @@ forward.addEventListener("click", function () {
   cover.style.backgroundImage = `url(${song[currentSong].cover})`;
   audio.play();
   play.style.backgroundImage = "url(../assets/img/pause.png)";
-  play.style.width = "45px";
-  play.style.height = "45px";
+  play.style.scale = "1.3";
+  play.classList.add("playing");
+  play.classList.remove("pause");
 });
 
 play.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
     play.style.backgroundImage = "url(../assets/img/pause.png)";
-    play.style.width = "45px";
-    play.style.height = "45px";
+    play.style.scale = "1.3";
+    play.classList.add("playing");
+    play.classList.remove("pause");
   } else {
     audio.pause();
     play.style.backgroundImage = "url(../assets/img/play.png)";
-    play.style.width = "48px";
-    play.style.height = "48px";
+    play.style.scale = "1";
+    play.classList.remove("playing");
+    play.classList.add("pause");
   }
 });
 
