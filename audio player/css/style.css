@@ -19,36 +19,49 @@ body {
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
-    /* filter: blur(0.5px); */
-    transition: opacity 0.2s ease-in-out, blur 0.3s ease-in-out;
-  }
-
-  #audio-player:hover  {
-    opacity: 1;
-    /* make the image blur */
-    filter: blur(0px);
   }
   
   #audio-player-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
-    width: 100%;
     height: 100%;
     cursor: move;
     z-index: 10;
-    background-color: #072a47;
-    color: #fff;
   }
 
   #play {
     filter: invert(100%);
-    width: 40px;
-    height: 40px;
-    margin: 20px auto;
+    width: 48px;
+    height: 48px;
     background-image: url(../assets/img/play.png);
     background-size: cover;
     background-position: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  #play:hover {
+    opacity: 1;
+  }
+
+  #rwd,
+  #fwd {
+    filter: invert(100%);
+    width: 40px;
+    height: 40px;
+    background-image: url(../assets/img/ffwd.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  #rwd {
+    transform: rotate(180deg);
+  }
+
+  #rwd:hover,
+  #fwd:hover {
+    opacity: 1;
   }
