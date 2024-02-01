@@ -54,6 +54,12 @@ body {
   transform: scale(-1, 1);
 }
 
+#shuffle {
+  width: 25px;
+  height: 25px;
+  background-image: url(../assets/img/shuffle.png);
+}
+
 .control-button {
   background-size: cover;
   background-position: center;

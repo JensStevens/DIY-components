@@ -50,7 +50,7 @@ function changeSong() {
   cover.style.backgroundImage = `url(${song[currentSong].cover})`;
   audio.play();
   play.style.backgroundImage = "url(../assets/img/pause.png)";
-  play.style.scale = "1.2";
+  play.style.scale = "1.1";
   play.classList.add("playing");
   play.classList.remove("pause");
 }
@@ -91,6 +91,28 @@ play.addEventListener("click", function () {
 
 audio.src = song[currentSong].url;
 cover.style.backgroundImage = `url(${song[currentSong].cover})`;
+
+// // ----------------------shuffle function
+
+const shuffle = document.querySelector("#shuffle");
+
+function shuffleSong(songArray) {
+  for (let i = songArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [songArray[i], songArray[j]] = [songArray[j], songArray[i]];
+  }
+}
+
+shuffle.addEventListener("click", function () {
+  shuffleSong(song);
+  currentSong = 0; // Reset to the first song after shuffling
+  changeSong();
+  if (shuffle.classList.contains("playing")) {
+    shuffle.classList.remove("playing");
+  } else {
+    shuffle.classList.add("playing");
+  }
+});
 
 // ----------------------drag import
 
