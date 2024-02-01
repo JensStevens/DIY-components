@@ -90,21 +90,21 @@ play.addEventListener("click", function () {
 audio.src = song[currentSong].url;
 cover.style.backgroundImage = `url(${song[currentSong].cover})`;
 
-// drag import
+// ----------------------drag import
 
 dragElement(document.getElementById("audio-player"));
 
-function dragElement(elmnt) {
+function dragElement(player) {
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
     pos4 = 0;
-  if (document.getElementById(elmnt.id + "controls")) {
+  if (document.getElementById(player.id + "controls")) {
     // if present, the controls is where you move the DIV from:
-    document.getElementById(elmnt.id + "controls").onmousedown = dragMouseDown;
+    document.getElementById(player.id + "controls").onmousedown = dragMouseDown;
   } else {
     // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
+    player.onmousedown = dragMouseDown;
   }
 
   function dragMouseDown(e) {
@@ -127,8 +127,8 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+    player.style.top = player.offsetTop - pos2 + "px";
+    player.style.left = player.offsetLeft - pos1 + "px";
   }
 
   function closeDragElement() {

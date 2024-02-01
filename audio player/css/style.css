@@ -51,19 +51,20 @@ body {
   }
 
   #rwd {
-    transform: rotate(180deg);
+    transform: scale(-1, 1);
   }
 
   .control-button {
     background-size: cover;
     background-position: center;
     cursor: pointer;
-    filter: invert(90%);
+    filter: invert(90%) drop-shadow(0 3px 0.5px rgba(0, 0, 0, 0.5));
     opacity: 0.8;
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease;
   }
 
   .control-button:hover {
     opacity: 1;
-    filter: invert(100%);
+    scale: 1.05;
+    filter: invert(100%) drop-shadow(0 5px 0.9px rgba(0, 0, 0, 0.5));
   }
