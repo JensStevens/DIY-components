@@ -45,19 +45,23 @@ const cover = document.querySelector("#audio-player");
 
 let currentSong = 0;
 
+function changeSong() {
+  audio.src = song[currentSong].url;
+  cover.style.backgroundImage = `url(${song[currentSong].cover})`;
+  audio.play();
+  play.style.backgroundImage = "url(../assets/img/pause.png)";
+  play.style.scale = "1.2";
+  play.classList.add("playing");
+  play.classList.remove("pause");
+}
+
 rewind.addEventListener("click", function () {
   if (currentSong > 0) {
     currentSong--;
   } else {
     currentSong = song.length - 1;
   }
-  audio.src = song[currentSong].url;
-  cover.style.backgroundImage = `url(${song[currentSong].cover})`;
-  audio.play();
-  play.style.backgroundImage = "url(../assets/img/pause.png)";
-  play.style.scale = "1.3";
-  play.classList.add("playing");
-  play.classList.remove("pause");
+  changeSong();
 });
 
 forward.addEventListener("click", function () {
@@ -66,13 +70,7 @@ forward.addEventListener("click", function () {
   } else {
     currentSong = 0;
   }
-  audio.src = song[currentSong].url;
-  cover.style.backgroundImage = `url(${song[currentSong].cover})`;
-  audio.play();
-  play.style.backgroundImage = "url(../assets/img/pause.png)";
-  play.style.scale = "1.3";
-  play.classList.add("playing");
-  play.classList.remove("pause");
+  changeSong();
 });
 
 play.addEventListener("click", function () {
