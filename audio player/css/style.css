@@ -6,6 +6,7 @@ body {
 
 #audio-player {
     position: absolute;
+    overflow: hidden;
     cursor: pointer;
     top: 50%;
     left: 50%;
@@ -15,7 +16,6 @@ body {
     width: 300px;
     height: 80px;
     border-radius: 10px;
-    background-image: url(../assets/img/dbr.jpg);
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -28,6 +28,7 @@ body {
     height: 100%;
     padding: 0 40px;
     z-index: 10;
+    backdrop-filter: blur(0.5px) brightness(0.75);
   }
 
   #play {
@@ -48,8 +49,8 @@ body {
   #rwd,
   #fwd {
     filter: invert(100%);
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
     background-image: url(../assets/img/ffwd.png);
     background-size: cover;
     background-position: center;

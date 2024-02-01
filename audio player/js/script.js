@@ -41,6 +41,7 @@ const rewind = document.querySelector("#rwd");
 const play = document.querySelector("#play");
 const forward = document.querySelector("#fwd");
 const audio = document.getElementsByTagName("audio")[0];
+const cover = document.querySelector("#audio-player");
 
 let currentSong = 0;
 
@@ -50,7 +51,13 @@ rewind.addEventListener("click", function () {
   } else {
     currentSong = song.length - 1;
   }
-})
+  audio.src = song[currentSong].url;
+  cover.style.backgroundImage = `url(${song[currentSong].cover})`;
+  audio.play();
+  play.style.backgroundImage = "url(../assets/img/pause.png)";
+  play.style.width = "45px";
+  play.style.height = "45px";
+});
 
 forward.addEventListener("click", function () {
   if (currentSong < song.length - 1) {
@@ -58,9 +65,13 @@ forward.addEventListener("click", function () {
   } else {
     currentSong = 0;
   }
-  console.log(currentSong);
-  console.log("forward clicked")
-})
+  audio.src = song[currentSong].url;
+  cover.style.backgroundImage = `url(${song[currentSong].cover})`;
+  audio.play();
+  play.style.backgroundImage = "url(../assets/img/pause.png)";
+  play.style.width = "45px";
+  play.style.height = "45px";
+});
 
 play.addEventListener("click", function () {
   if (audio.paused) {
@@ -74,11 +85,10 @@ play.addEventListener("click", function () {
     play.style.width = "48px";
     play.style.height = "48px";
   }
-})
+});
 
 audio.src = song[currentSong].url;
-
-
+cover.style.backgroundImage = `url(${song[currentSong].cover})`;
 
 // drag import
 
