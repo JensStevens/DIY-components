@@ -112,7 +112,7 @@ body {
 }
 
 #progress-container {
-  left: calc(50% - 40%);
+  left: 10%;
   bottom: 5px;
   width: 80%;
   display: flex;
@@ -123,23 +123,54 @@ body {
 
 #artist-title-container {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
+  left: 10%;
   height: 5px;
-  left: calc(50% - 40%);
+  width: 80%;
   bottom: 21px;
   color: rgba(204, 204, 204);
   font-size: 10px;
   transition: opacity 0.3s ease;
 }
 
+#artist-title-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
 #artist {
   font-weight: bold;
+  text-align: right;
+  width: 50%;
 }
 
 #artist::after {
   content: "-";
   margin: 0 2px;
 }
+
+/* GE ZIJT AANT DUTSEN */
+/* vraag hulp */
+
+.title-container {
+    white-space: nowrap;
+    overflow: auto;
+    width: 40%;
+    padding-right: 15px;
+  }
+  
+#title {
+  text-align: left;
+}  
+
+#title {
+    animation: scrolling 12s .2s linear infinite;
+}  
+
+  @keyframes scrolling {
+    from { bottom: 0; transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-100%, 0, 0); }
+  }
