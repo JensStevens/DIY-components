@@ -20,7 +20,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 10;
   width: 300px;
-  height: 80px;
+  height: 90px;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -109,7 +109,7 @@ body {
 
 #progress-container {
     left: calc(50% - 40%);
-    bottom: 3px;
+    bottom: 5px;
     width: 80%;
     display: flex;
     align-items: center;
@@ -125,7 +125,7 @@ body {
     width: 80%;
     height: 5px;
     left: calc(50% - 40%);
-    bottom: 18px;
+    bottom: 20px;
     color:  rgba(204, 204, 204);
     font-size: 0.6rem;
 }
