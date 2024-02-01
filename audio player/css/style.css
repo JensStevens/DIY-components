@@ -1,7 +1,7 @@
 :root {
     --play-button-size: 35px;
     --control-button-size: 25px;
-    --shuffle-button-size: 20px;
+    --shuffle-button-size: 15px;
 }
 
 body {
@@ -71,7 +71,7 @@ body {
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  filter: invert(100%) drop-shadow(0 3px 0.5px rgba(0, 0, 0, 0.5));
+  filter: invert(100%) drop-shadow(0 2px 0.8px rgba(0, 0, 0, 0.5));
   opacity: 0.8;
   transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease;
   margin-bottom: 10px;
@@ -81,7 +81,7 @@ body {
 .playing {
   opacity: 1;
   scale: 1.05;
-  filter: invert(100%) drop-shadow(0 5px 0.9px rgba(0, 0, 0, 0.5));
+  filter: invert(100%) drop-shadow(0 4px 1.2px rgba(0, 0, 0, 0.5));
 }
 
 .progress {
