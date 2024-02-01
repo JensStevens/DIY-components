@@ -108,7 +108,7 @@ body {
 #total-time {
   margin: 10px 10px 0;
   color: rgba(204, 204, 204);
-  font-size: 0.5rem;
+  font-size: 8px;
 }
 
 #progress-container {
@@ -131,7 +131,7 @@ body {
   left: calc(50% - 40%);
   bottom: 21px;
   color: rgba(204, 204, 204);
-  font-size: 0.6rem;
+  font-size: 10px;
   transition: opacity 0.3s ease;
 }
 
