@@ -53,7 +53,7 @@ body {
 #rwd,
 #fwd {
   width: var(--control-button-size);
-  height: 35px;
+  height: var(--control-button-size);
   background-image: url(../assets/img/ffwd.png);
 }
 
@@ -74,6 +74,7 @@ body {
   filter: invert(100%) drop-shadow(0 3px 0.5px rgba(0, 0, 0, 0.5));
   opacity: 0.8;
   transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .control-button:hover,
@@ -108,7 +109,7 @@ body {
 
 #progress-container {
     left: calc(50% - 40%);
-    bottom: 3px;
+    bottom: 10px;
     width: 80%;
     display: flex;
     align-items: center;
