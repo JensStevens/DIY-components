@@ -44,12 +44,19 @@ const audio = document.getElementsByTagName("audio")[0];
 const cover = document.querySelector("#audio-player");
 const artist = document.querySelector("#artist");
 const title = document.querySelector("#title");
+const artistTitleContainer = document.querySelector("#artist-title-container");
+// const controls = document.querySelectorAll(".control-button");
+
+let currentSong = 0;
 
 const progressBar = document.getElementById("progress-bar");
 const currentTimeDisplay = document.getElementById("current-time");
 const totalTimeDisplay = document.getElementById("total-time");
+const progressContainer = document.querySelector("#progress-container");
 
-let currentSong = 0;
+// controls.style.marginBottom = "0";
+artistTitleContainer.style.opacity = "0";
+progressContainer.style.opacity = "0";
 
 function changeSong() {
   audio.src = song[currentSong].url;
@@ -61,6 +68,8 @@ function changeSong() {
   play.classList.remove("pause");
   artist.textContent = song[currentSong].artist;
   title.textContent = song[currentSong].title;
+  progressContainer.style.opacity = "1";
+  artistTitleContainer.style.opacity = "1";
 }
 
 rewind.addEventListener("click", function () {
@@ -88,6 +97,8 @@ play.addEventListener("click", function () {
     play.style.scale = "1.1";
     play.classList.add("playing");
     play.classList.remove("pause");
+    progressContainer.style.opacity = "1";
+    artistTitleContainer.style.opacity = "1";
   } else {
     audio.pause();
     play.style.backgroundImage = "url(../assets/img/play.png)";
@@ -99,6 +110,8 @@ play.addEventListener("click", function () {
 
 audio.src = song[currentSong].url;
 cover.style.backgroundImage = `url(${song[currentSong].cover})`;
+artist.textContent = song[currentSong].artist;
+title.textContent = song[currentSong].title;
 
 // // ----------------------shuffle function
 
@@ -122,22 +135,26 @@ shuffle.addEventListener("click", function () {
   }
 });
 
-// ----------------------auto-play-next
+// ----------------------progress-bar
 
 audio.addEventListener("timeupdate", () => {
-    const currentTime = audio.currentTime;
-    const duration = audio.duration;
+  const currentTime = audio.currentTime;
+  const duration = audio.duration;
 
-    const currentMinutes = Math.floor(currentTime / 60);
-    const currentSeconds = Math.floor(currentTime % 60);
-    const totalMinutes = Math.floor(duration / 60);
-    const totalSeconds = Math.floor(duration % 60);
+  const currentMinutes = Math.floor(currentTime / 60);
+  const currentSeconds = Math.floor(currentTime % 60);
+  const totalMinutes = Math.floor(duration / 60);
+  const totalSeconds = Math.floor(duration % 60);
 
-    currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
-    totalTimeDisplay.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
+  currentTimeDisplay.textContent = `${currentMinutes}:${
+    currentSeconds < 10 ? "0" : ""
+  }${currentSeconds}`;
+  totalTimeDisplay.textContent = `${totalMinutes}:${
+    totalSeconds < 10 ? "0" : ""
+  }${totalSeconds}`;
 
-    const progress = (currentTime / duration) * 100;
-    progressBar.style.width = `${progress}%`;
+  const progress = (currentTime / duration) * 100;
+  progressBar.style.width = `${progress}%`;
 });
 
 // ----------------------drag import
