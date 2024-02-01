@@ -42,6 +42,8 @@ const play = document.querySelector("#play");
 const forward = document.querySelector("#fwd");
 const audio = document.getElementsByTagName("audio")[0];
 const cover = document.querySelector("#audio-player");
+const artist = document.querySelector("#artist");
+const title = document.querySelector("#title");
 
 const progressBar = document.getElementById("progress-bar");
 const currentTimeDisplay = document.getElementById("current-time");
@@ -57,6 +59,8 @@ function changeSong() {
   play.style.scale = "1.1";
   play.classList.add("playing");
   play.classList.remove("pause");
+  artist.textContent = song[currentSong].artist;
+  title.textContent = song[currentSong].title;
 }
 
 rewind.addEventListener("click", function () {

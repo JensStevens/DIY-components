@@ -116,3 +116,16 @@ body {
     justify-content: center;
     position: absolute;
 }
+
+#artist-title-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 5px;
+    left: calc(50% - 40%);
+    top: 15px;
+    color:  rgba(204, 204, 204);
+    font-size: 0.7rem;
+}
