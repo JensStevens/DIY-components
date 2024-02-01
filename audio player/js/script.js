@@ -45,7 +45,7 @@ const cover = document.querySelector("#audio-player");
 const artist = document.querySelector("#artist");
 const title = document.querySelector("#title");
 const artistTitleContainer = document.querySelector("#artist-title-container");
-// const controls = document.querySelectorAll(".control-button");
+const controls = document.querySelectorAll(".control-button");
 
 let currentSong = 0;
 
@@ -54,7 +54,10 @@ const currentTimeDisplay = document.getElementById("current-time");
 const totalTimeDisplay = document.getElementById("total-time");
 const progressContainer = document.querySelector("#progress-container");
 
-// controls.style.marginBottom = "0";
+for (let i = 0; i < controls.length; i++) {
+  controls[i].style.marginBottom = "0";
+}
+
 artistTitleContainer.style.opacity = "0";
 progressContainer.style.opacity = "0";
 
@@ -70,6 +73,9 @@ function changeSong() {
   title.textContent = song[currentSong].title;
   progressContainer.style.opacity = "1";
   artistTitleContainer.style.opacity = "1";
+  for (let i = 0; i < controls.length; i++) {
+    controls[i].style.marginBottom = "16px";
+  }
 }
 
 rewind.addEventListener("click", function () {
@@ -99,6 +105,9 @@ play.addEventListener("click", function () {
     play.classList.remove("pause");
     progressContainer.style.opacity = "1";
     artistTitleContainer.style.opacity = "1";
+    for (let i = 0; i < controls.length; i++) {
+      controls[i].style.marginBottom = "16px";
+    }
   } else {
     audio.pause();
     play.style.backgroundImage = "url(../assets/img/play.png)";
