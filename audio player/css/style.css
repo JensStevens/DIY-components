@@ -1,70 +1,69 @@
 body {
-    background-color: #1e1e1e;
-    height: 100vh;
-    position: relative;
+  background-color: #1e1e1e;
+  height: 100vh;
+  position: relative;
 }
 
 #audio-player {
-    position: absolute;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    text-align: center;
-    width: 300px;
-    height: 80px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  #audio-player-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 40px;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.3);
-    transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
-  }
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  width: 300px;
+  height: 80px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-  #audio-player-controls:has(.control-button:hover) {
-    backdrop-filter: blur(0.5px);
-    background-color: rgba(0, 0, 0, 0.5);
+#audio-player-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 40px;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
 
-  }
+#audio-player-controls:has(.control-button:hover) {
+  backdrop-filter: blur(0.5px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
-  #play {
-    width: 48px;
-    height: 48px;
-    background-image: url(../assets/img/play.png);
-  }
+#play {
+  width: 48px;
+  height: 48px;
+  background-image: url(../assets/img/play.png);
+}
 
-  #rwd,
-  #fwd {
-    width: 35px;
-    height: 35px;
-    background-image: url(../assets/img/ffwd.png);
-  }
+#rwd,
+#fwd {
+  width: 35px;
+  height: 35px;
+  background-image: url(../assets/img/ffwd.png);
+}
 
-  #rwd {
-    transform: scale(-1, 1);
-  }
+#rwd {
+  transform: scale(-1, 1);
+}
 
-  .control-button {
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    filter: invert(90%) drop-shadow(0 3px 0.5px rgba(0, 0, 0, 0.5));
-    opacity: 0.8;
-    transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease;
-  }
+.control-button {
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  filter: invert(90%) drop-shadow(0 3px 0.5px rgba(0, 0, 0, 0.5));
+  opacity: 0.8;
+  transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease;
+}
 
-  .control-button:hover {
-    opacity: 1;
-    scale: 1.05;
-    filter: invert(100%) drop-shadow(0 5px 0.9px rgba(0, 0, 0, 0.5));
-  }
+.control-button:hover {
+  opacity: 1;
+  scale: 1.05;
+  filter: invert(100%) drop-shadow(0 5px 0.9px rgba(0, 0, 0, 0.5));
+}
