@@ -1,7 +1,15 @@
+:root {
+    --play-button-size: 35px;
+    --control-button-size: 25px;
+    --shuffle-button-size: 20px;
+}
+
 body {
   background-color: #1e1e1e;
   height: 100vh;
   position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 }
 
 #audio-player {
@@ -11,7 +19,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  text-align: center;
   width: 300px;
   height: 80px;
   border-radius: 10px;
@@ -38,14 +45,14 @@ body {
 }
 
 #play {
-  width: 48px;
-  height: 48px;
+  width: var(--play-button-size);
+  height: var(--play-button-size);
   background-image: url(../assets/img/play.png);
 }
 
 #rwd,
 #fwd {
-  width: 35px;
+  width: var(--control-button-size);
   height: 35px;
   background-image: url(../assets/img/ffwd.png);
 }
@@ -55,8 +62,8 @@ body {
 }
 
 #shuffle {
-  width: 25px;
-  height: 25px;
+  width: var(--shuffle-button-size);
+  height: var(--shuffle-button-size);
   background-image: url(../assets/img/shuffle.png);
 }
 
@@ -74,4 +81,37 @@ body {
   opacity: 1;
   scale: 1.05;
   filter: invert(100%) drop-shadow(0 5px 0.9px rgba(0, 0, 0, 0.5));
+}
+
+.progress {
+    width: 100%;
+    height: 3px;
+    border-radius: 10px;
+    background-color: rgba(204, 204, 204, 0.5);
+    margin-top: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+    border-radius: 10px;
+    width: 0;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+#current-time, #total-time {
+    margin: 10px 10px 0;
+    color: #fff;
+    font-size: 0.5rem;
+}
+
+#progress-container {
+    left: calc(50% - 40%);
+    bottom: 3px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
 }
