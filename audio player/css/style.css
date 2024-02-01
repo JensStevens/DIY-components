@@ -123,6 +123,7 @@ body {
 
 #artist-title-container {
   position: absolute;
+  cursor: default;
   left: 10%;
   height: 5px;
   width: 80%;
@@ -165,7 +166,7 @@ body {
 #title {
   text-align: left;
 }  
-
+/* 
 #title {
     animation: scrolling 12s .2s linear infinite;
 }  
@@ -173,4 +174,4 @@ body {
   @keyframes scrolling {
     from { bottom: 0; transform: translate3d(0, 0, 0); }
     to { transform: translate3d(-100%, 0, 0); }
-  }
+  } */
