@@ -161,7 +161,7 @@ shuffle.addEventListener("click", function () {
   }
 });
 
-// ----------------------progress-bar
+// ----------------------progress-bar + auto-play
 
 audio.addEventListener("timeupdate", () => {
   const currentTime = audio.currentTime;
@@ -181,6 +181,13 @@ audio.addEventListener("timeupdate", () => {
 
   const progress = (currentTime / duration) * 100;
   progressBar.style.width = `${progress}%`;
+  if (currentTime === duration) {
+    currentSong++;
+    if (currentSong >= song.length) {
+      currentSong = 0;
+    }
+    changeSong();
+  }
 });
 
 // ----------------------drag import
