@@ -80,6 +80,7 @@ function changeSong() {
   artist.textContent = song[currentSong].artist;
   title.textContent = song[currentSong].title;
   progressContainer.style.opacity = "1";
+  progressContainer.style.transition = "opacity 0.5s ease-in 0.5s";
   artistTitleContainer.style.opacity = "1";
   for (let i = 0; i < controls.length; i++) {
     controls[i].style.marginBottom = "16px";
