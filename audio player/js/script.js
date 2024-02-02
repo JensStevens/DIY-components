@@ -113,6 +113,7 @@ play.addEventListener("click", function () {
     play.classList.add("playing");
     play.classList.remove("pause");
     progressContainer.style.opacity = "1";
+    progressContainer.style.transition = "opacity 0.5s ease-in 0.5s";
     artistTitleContainer.style.opacity = "1";
     for (let i = 0; i < controls.length; i++) {
       controls[i].style.marginBottom = "16px";
@@ -125,6 +126,7 @@ play.addEventListener("click", function () {
     play.classList.remove("playing");
     play.classList.add("pause");
     progressContainer.style.opacity = "0";
+    progressContainer.style.transition = "opacity 0.2s ease-in 0.2s";
     artistTitleContainer.style.opacity = "0";
     for (let i = 0; i < controls.length; i++) {
       controls[i].style.marginBottom = "0";
