@@ -35,6 +35,12 @@ const song = [
     url: "../assets/audio/DrugsYouShouldTry.mp3",
     cover: "../assets/img/dbr.jpg",
   },
+  {
+    title: "Highest In The Room",
+    artist: "Travis Scott",
+    url: "../assets/audio/hitr.m4a",
+    cover: "../assets/img/hitr.png",
+  },
 ];
 
 const rewind = document.querySelector("#rwd");
@@ -141,6 +147,7 @@ function shuffleSong(songArray) {
     const j = Math.floor(Math.random() * (i + 1));
     [songArray[i], songArray[j]] = [songArray[j], songArray[i]];
   }
+  console.log(songArray);
 }
 
 shuffle.addEventListener("click", function () {
