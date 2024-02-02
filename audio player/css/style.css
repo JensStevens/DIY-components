@@ -124,6 +124,7 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
+  transition: opacity 0.5s ease-out 0.5s; 
 }
 
 #artist-title-container {
