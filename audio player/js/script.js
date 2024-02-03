@@ -12,6 +12,7 @@ const audioPlayer = {
   forward: document.querySelector("#fwd"),
   audio: document.getElementsByTagName("audio")[0],
   shuffleButton: document.querySelector("#shuffle"),
+  menu: document.querySelector("#menu"),
 };
 
 audioPlayer.cover.style.height = "70px";
@@ -177,6 +178,8 @@ audioPlayer.shuffleButton.addEventListener("click", function () {
   audioPlayer.shuffleButton.classList.toggle("playing");
 });
 
+audioPlayer.menu.addEventListener("click", openMenu);
+
 audioPlayer.audio.addEventListener("timeupdate", updateProgressBar);
 
 dragElement(document.getElementById("audio-player"));
@@ -224,4 +227,14 @@ function shuffleSong(songArray) {
     const j = Math.floor(Math.random() * (i + 1));
     [songArray[i], songArray[j]] = [songArray[j], songArray[i]];
   }
+}
+
+// beter speciale klasse maken menu-open en bug fixen dat menu de player verkleint als het menu 90px is
+
+function openMenu() {
+  audioPlayer.cover.style.height === "70px"
+    ? ((audioPlayer.cover.style.height = "250px"),
+      audioPlayer.play.classList.add("playing"),
+      audioPlayer.play.classList.remove("pause"))
+    : (audioPlayer.cover.style.height = "70px");
 }
