@@ -51,7 +51,6 @@ const cover = document.querySelector("#audio-player");
 const artist = document.querySelector("#artist");
 const title = document.querySelector("#title");
 const artistTitleContainer = document.querySelector("#artist-title-container");
-const controls = document.querySelectorAll(".control-button");
 
 let currentSong = 0;
 
