@@ -6,11 +6,7 @@
 
 body {
   /* background-color: #1e1e1e; */
-  background: linear-gradient(
-    45deg,
-    #ffffff 0%,
-    #1e1e1e 50%
-  );
+  background: linear-gradient(45deg, #ffffff 0%, #1e1e1e 50%);
   height: 100vh;
   position: relative;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -36,8 +32,8 @@ body {
 
 #audio-player-controls {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   height: 100%;
   padding: 0 40px;
   z-index: 10;
@@ -49,6 +45,14 @@ body {
 #audio-player-controls:has(div.playing) {
   backdrop-filter: blur(0.5px);
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8% 0 0;
 }
 
 #play {
@@ -82,7 +86,6 @@ body {
   opacity: 0.8;
   transition: opacity 0.3s ease, filter 0.3s ease, scale 0.3s ease,
     margin 0.3s ease;
-  margin-bottom: 16px;
 }
 
 .control-button:hover,
@@ -91,6 +94,58 @@ body {
   scale: 1.05;
   filter: invert(100%) drop-shadow(0 4px 1.2px rgba(0, 0, 0, 0.5));
 }
+
+#artist-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  padding: 0 10px 5px 0;
+  width: 100%;
+  height: 50%;
+  color: rgba(204, 204, 204);
+  font-size: 10px;
+  transition: opacity ease-in 0.1s;
+}
+
+#artist {
+  font-weight: bold;
+  text-align: right;
+  width: 50%;
+}
+
+#artist::after {
+  content: "-";
+  margin: 0 2px;
+}
+
+/* GE ZIJT AANT DUTSEN */
+/* vraag hulp */
+
+.title-container {
+  white-space: nowrap;
+  overflow: auto;
+  width: 40%;
+  padding-right: 25px;
+}
+
+#title {
+  text-align: left;
+}
+
+/* #title {
+  animation: scrolling 12s 1s linear infinite;
+}
+
+@keyframes scrolling {
+  from {
+    bottom: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+} */
 
 .progress {
   width: 100%;
@@ -124,60 +179,5 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  transition: opacity 0.2s ease-out 0.2s; 
+  transition: opacity 0.2s ease-out 0.2s;
 }
-
-#artist-title-container {
-  position: absolute;
-  cursor: default;
-  left: 10%;
-  height: 5px;
-  width: 80%;
-  bottom: 21px;
-  color: rgba(204, 204, 204);
-  font-size: 10px;
-  transition: opacity 0.3s ease;
-}
-
-#artist-title-container > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-}
-
-#artist {
-  font-weight: bold;
-  text-align: right;
-  width: 50%;
-}
-
-#artist::after {
-  content: "-";
-  margin: 0 2px;
-}
-
-/* GE ZIJT AANT DUTSEN */
-/* vraag hulp */
-
-.title-container {
-  white-space: nowrap;
-  overflow: auto;
-  width: 40%;
-  padding-right: 15px;
-}
-
-#title {
-  text-align: left;
-}
-/* 
-#title {
-    animation: scrolling 12s .2s linear infinite;
-}  
-
-  @keyframes scrolling {
-    from { bottom: 0; transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(-100%, 0, 0); }
-  } */

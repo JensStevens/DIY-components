@@ -60,10 +60,6 @@ const currentTimeDisplay = document.getElementById("current-time");
 const totalTimeDisplay = document.getElementById("total-time");
 const progressContainer = document.querySelector("#progress-container");
 
-for (let i = 0; i < controls.length; i++) {
-  controls[i].style.marginBottom = "0";
-}
-
 cover.style.height = "70px";
 
 artistTitleContainer.style.opacity = "0";
@@ -81,9 +77,6 @@ function changeSong() {
   title.textContent = song[currentSong].title;
   progressContainer.style.opacity = "1";
   artistTitleContainer.style.opacity = "1";
-  for (let i = 0; i < controls.length; i++) {
-    controls[i].style.marginBottom = "16px";
-  }
   cover.style.height = "90px";
 }
 
@@ -114,9 +107,6 @@ play.addEventListener("click", function () {
     play.classList.remove("pause");
     progressContainer.style.opacity = "1";
     artistTitleContainer.style.opacity = "1";
-    for (let i = 0; i < controls.length; i++) {
-      controls[i].style.marginBottom = "16px";
-    }
     cover.style.height = "90px";
   } else {
     audio.pause();
@@ -126,9 +116,6 @@ play.addEventListener("click", function () {
     play.classList.add("pause");
     progressContainer.style.opacity = "0";
     artistTitleContainer.style.opacity = "0";
-    for (let i = 0; i < controls.length; i++) {
-      controls[i].style.marginBottom = "0";
-    }
     cover.style.height = "70px";
   }
 });
