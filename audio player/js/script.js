@@ -156,10 +156,9 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.remove("pause");
     audioPlayer.progressContainer.style.opacity = "1";
     audioPlayer.artistTitleContainer.style.opacity = "1";
-    if (audioPlayer.cover.style.height === "70px") {
-      audioPlayer.cover.style.height = "90px";
-    }
-    // audioPlayer.cover.style.height = "90px";
+    audioPlayer.cover.style.height === "70px"
+      ? (audioPlayer.cover.style.height = "90px")
+      : null;
   } else {
     audioPlayer.audio.pause();
     audioPlayer.play.style.backgroundImage = "url(../assets/img/play.png)";
@@ -168,10 +167,9 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.add("pause");
     audioPlayer.progressContainer.style.opacity = "0";
     audioPlayer.artistTitleContainer.style.opacity = "0";
-    if (audioPlayer.cover.style.height === "90px") {
-      audioPlayer.cover.style.height = "70px";
-    }
-    // audioPlayer.cover.style.height = "70px";
+    audioPlayer.cover.style.height === "90px"
+      ? (audioPlayer.cover.style.height = "70px")
+      : null;
   }
 });
 
@@ -238,14 +236,7 @@ function shuffleSong(songArray) {
   }
 }
 
-// bug fixen dat menu de player verkleint als het menu 90px is
-
 function openMenu() {
-  //   audioPlayer.cover.style.height === "70px"
-  //     ? ((audioPlayer.cover.style.height = "250px"),
-  //       audioPlayer.menu.classList.add("menu-open"))
-  //     : ((audioPlayer.cover.style.height = "70px"),
-  //       audioPlayer.menu.classList.remove("menu-open"));
   const coverHeight = audioPlayer.cover.style.height;
 
   audioPlayer.cover.style.height =
@@ -255,14 +246,7 @@ function openMenu() {
       ? "70px"
       : "90px";
 
-//   if (
-//     audioPlayer.cover.style.height === "70px" ||
-//     audioPlayer.cover.style.height === "90px"
-//   ) {
-//     audioPlayer.cover.style.height = "250px";
-//   } else if (audioPlayer.audio.paused) {
-//     audioPlayer.cover.style.height = "70px";
-//   } else {
-//     audioPlayer.cover.style.height = "90px";
-//   }
+  coverHeight === "250px"
+    ? audioPlayer.menu.classList.remove("menu-open")
+    : audioPlayer.menu.classList.add("menu-open");
 }
