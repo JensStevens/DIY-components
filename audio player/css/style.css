@@ -78,6 +78,12 @@ body {
   background-image: url(../assets/img/shuffle.png);
 }
 
+#menu {
+  width: var(--shuffle-button-size);
+  height: var(--shuffle-button-size);
+  background-image: url(../assets/img/menu.png);
+}
+
 .control-button {
   background-size: cover;
   background-position: center;
