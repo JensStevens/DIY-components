@@ -229,12 +229,14 @@ function shuffleSong(songArray) {
   }
 }
 
-// beter speciale klasse maken menu-open en bug fixen dat menu de player verkleint als het menu 90px is
+// bug fixen dat menu de player verkleint als het menu 90px is
 
 function openMenu() {
   audioPlayer.cover.style.height === "70px"
     ? ((audioPlayer.cover.style.height = "250px"),
-      audioPlayer.play.classList.add("playing"),
-      audioPlayer.play.classList.remove("pause"))
-    : (audioPlayer.cover.style.height = "70px");
+      audioPlayer.menu.classList.add("playing"),
+      audioPlayer.menu.classList.remove("pause"))
+    : ((audioPlayer.cover.style.height = "70px"),
+      audioPlayer.menu.classList.add("pause"),
+      audioPlayer.menu.classList.remove("playing"));
 }
