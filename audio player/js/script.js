@@ -41,6 +41,30 @@ const song = [
     url: "../assets/audio/hitr.m4a",
     cover: "../assets/img/hitr.png",
   },
+  {
+    title: "Flex",
+    artist: "Tory Lanez",
+    url: "../assets/audio/flex.m4a",
+    cover: "../assets/img/itoldu.jpeg",
+  },
+  {
+    title: "Heaven Or Hell",
+    artist: "Don Toliver",
+    url: "../assets/audio/HeavenOrHell.m4a",
+    cover: "../assets/img/hoh.png",
+  },
+  {
+    title: "I-95",
+    artist: "Tory Lanez",
+    url: "../assets/audio/I-95.mp3",
+    cover: "../assets/img/lostcause.jpg",
+  },
+  {
+    title: "Rudolph",
+    artist: "Don Toliver",
+    url: "../assets/audio/rudolph.mp3",
+    cover: "../assets/img/rudolph.jpg",
+  }
 ];
 
 const rewind = document.querySelector("#rwd");
