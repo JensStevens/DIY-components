@@ -103,7 +103,10 @@ function changeSong() {
   audioPlayer.title.textContent = currentSongData.title;
   audioPlayer.progressContainer.style.opacity = "1";
   audioPlayer.artistTitleContainer.style.opacity = "1";
-  audioPlayer.cover.style.height = "90px";
+  if (audioPlayer.cover.style.height === "70px") {
+    audioPlayer.cover.style.height = "90px";
+  }
+  //   audioPlayer.cover.style.height = "90px";
 }
 
 function updateProgressBar() {
@@ -153,7 +156,10 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.remove("pause");
     audioPlayer.progressContainer.style.opacity = "1";
     audioPlayer.artistTitleContainer.style.opacity = "1";
-    audioPlayer.cover.style.height = "90px";
+    if (audioPlayer.cover.style.height === "70px") {
+      audioPlayer.cover.style.height = "90px";
+    }
+    // audioPlayer.cover.style.height = "90px";
   } else {
     audioPlayer.audio.pause();
     audioPlayer.play.style.backgroundImage = "url(../assets/img/play.png)";
@@ -162,7 +168,10 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.add("pause");
     audioPlayer.progressContainer.style.opacity = "0";
     audioPlayer.artistTitleContainer.style.opacity = "0";
-    audioPlayer.cover.style.height = "70px";
+    if (audioPlayer.cover.style.height === "90px") {
+      audioPlayer.cover.style.height = "70px";
+    }
+    // audioPlayer.cover.style.height = "70px";
   }
 });
 
@@ -232,11 +241,28 @@ function shuffleSong(songArray) {
 // bug fixen dat menu de player verkleint als het menu 90px is
 
 function openMenu() {
-  audioPlayer.cover.style.height === "70px"
-    ? ((audioPlayer.cover.style.height = "250px"),
-      audioPlayer.menu.classList.add("playing"),
-      audioPlayer.menu.classList.remove("pause"))
-    : ((audioPlayer.cover.style.height = "70px"),
-      audioPlayer.menu.classList.add("pause"),
-      audioPlayer.menu.classList.remove("playing"));
+  //   audioPlayer.cover.style.height === "70px"
+  //     ? ((audioPlayer.cover.style.height = "250px"),
+  //       audioPlayer.menu.classList.add("menu-open"))
+  //     : ((audioPlayer.cover.style.height = "70px"),
+  //       audioPlayer.menu.classList.remove("menu-open"));
+  const coverHeight = audioPlayer.cover.style.height;
+
+  audioPlayer.cover.style.height =
+    coverHeight === "70px" || coverHeight === "90px"
+      ? "250px"
+      : audioPlayer.audio.paused
+      ? "70px"
+      : "90px";
+
+//   if (
+//     audioPlayer.cover.style.height === "70px" ||
+//     audioPlayer.cover.style.height === "90px"
+//   ) {
+//     audioPlayer.cover.style.height = "250px";
+//   } else if (audioPlayer.audio.paused) {
+//     audioPlayer.cover.style.height = "70px";
+//   } else {
+//     audioPlayer.cover.style.height = "90px";
+//   }
 }

@@ -42,7 +42,8 @@ body {
 }
 
 /* #audio-player-controls:has(.control-button:hover), */
-#audio-player-controls:has(div.playing) {
+#audio-player-controls:has(div.playing),
+#audio-player-controls:has(div.menu-open) {
   backdrop-filter: blur(0.5px);
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -95,7 +96,8 @@ body {
 }
 
 .control-button:hover,
-.playing {
+.playing,
+.menu-open {
   opacity: 1;
   scale: 1.05;
   filter: invert(100%) drop-shadow(0 4px 1.2px rgba(0, 0, 0, 0.5));
