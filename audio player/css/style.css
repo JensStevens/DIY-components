@@ -181,12 +181,12 @@ body {
   align-items: center;
   display: none;
   flex-direction: column;
-  height: 62%;
+  height: 70%;
   justify-content: space-between;
   /* overflow: auto; */
   position: absolute;
   right: 5%;
-  top: 25%;
+  top: 20%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out 0.3s, display 0.3s ease-in-out 0.3s;
   width: 90%;
@@ -211,6 +211,7 @@ body {
   background-size: cover;
   border-radius: 5px;
   height: 40px;
+  transition: background-image 0.2s ease-out 0.1s;
   width: 40px;
 }
 
@@ -227,4 +228,5 @@ body {
 
 .menu-item-artist {
   font-weight: bold;
+  font-size: 10px;
 }
