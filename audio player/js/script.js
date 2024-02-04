@@ -182,10 +182,11 @@ audioPlayer.artist.textContent = song[currentSong].artist;
 audioPlayer.title.textContent = song[currentSong].title;
 
 audioPlayer.shuffleButton.addEventListener("click", function () {
-  shuffleSong(song);
-  currentSong = 0;
-  changeSong();
   audioPlayer.shuffleButton.classList.toggle("playing");
+  audioPlayer.shuffleButton.classList.contains("playing")
+    ? (shuffleSong(song), (currentSong = 0), changeSong())
+    : song.sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0));
+  console.log(song);
 });
 
 audioPlayer.menu.addEventListener("click", openMenu);
