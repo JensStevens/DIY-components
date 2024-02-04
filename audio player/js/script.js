@@ -13,13 +13,12 @@ const audioPlayer = {
   audio: document.getElementsByTagName("audio")[0],
   shuffleButton: document.querySelector("#shuffle"),
   menu: document.querySelector("#menu"),
+  inactiveHeight: "70px",
+  activeHeight: "90px",
+  menuHeight: "250px",
 };
 
-const activeHeight = "90px";
-const inactiveHeight = "70px";
-const menuHeight = "250px";
-
-audioPlayer.cover.style.height = inactiveHeight;
+audioPlayer.cover.style.height = audioPlayer.inactiveHeight;
 audioPlayer.artistTitleContainer.style.opacity = "0";
 audioPlayer.progressContainer.style.opacity = "0";
 
@@ -107,9 +106,9 @@ function changeSong() {
   audioPlayer.title.textContent = currentSongData.title;
   audioPlayer.progressContainer.style.opacity = "1";
   audioPlayer.artistTitleContainer.style.opacity = "1";
-  audioPlayer.cover.style.height === inactiveHeight
-  ? (audioPlayer.cover.style.height = activeHeight)
-  : null;
+  audioPlayer.cover.style.height === audioPlayer.inactiveHeight
+    ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
+    : null;
 }
 
 function updateProgressBar() {
@@ -159,8 +158,8 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.remove("pause");
     audioPlayer.progressContainer.style.opacity = "1";
     audioPlayer.artistTitleContainer.style.opacity = "1";
-    audioPlayer.cover.style.height === inactiveHeight
-      ? (audioPlayer.cover.style.height = activeHeight)
+    audioPlayer.cover.style.height === audioPlayer.inactiveHeight
+      ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
       : null;
   } else {
     audioPlayer.audio.pause();
@@ -170,8 +169,8 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.add("pause");
     audioPlayer.progressContainer.style.opacity = "0";
     audioPlayer.artistTitleContainer.style.opacity = "0";
-    audioPlayer.cover.style.height === activeHeight
-      ? (audioPlayer.cover.style.height = inactiveHeight)
+    audioPlayer.cover.style.height === audioPlayer.activeHeight
+      ? (audioPlayer.cover.style.height = audioPlayer.inactiveHeight)
       : null;
   }
 });
@@ -243,13 +242,14 @@ function openMenu() {
   const coverHeight = audioPlayer.cover.style.height;
 
   audioPlayer.cover.style.height =
-    coverHeight === inactiveHeight || coverHeight === activeHeight
-      ? menuHeight
+    coverHeight === audioPlayer.inactiveHeight ||
+    coverHeight === audioPlayer.activeHeight
+      ? audioPlayer.menuHeight
       : audioPlayer.audio.paused
-      ? inactiveHeight
-      : activeHeight;
+      ? audioPlayer.inactiveHeight
+      : audioPlayer.activeHeight;
 
-  coverHeight === menuHeight
+  coverHeight === audioPlayer.menuHeight
     ? audioPlayer.menu.classList.remove("menu-open")
     : audioPlayer.menu.classList.add("menu-open");
 }
