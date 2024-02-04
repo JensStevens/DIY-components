@@ -16,7 +16,7 @@ const audioPlayer = {
   menuContainer: document.querySelector(".menu-container"),
   inactiveHeight: "70px",
   activeHeight: "90px",
-  menuHeight: "310px",
+  menuHeight: "320px",
 };
 
 audioPlayer.cover.style.height = audioPlayer.inactiveHeight;
@@ -186,8 +186,10 @@ audioPlayer.shuffleButton.addEventListener("click", function () {
   audioPlayer.shuffleButton.classList.toggle("playing");
   audioPlayer.shuffleButton.classList.contains("playing")
     ? (shuffleSong(song), (currentSong = 0), changeSong())
-    : song.sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0));
-  console.log(song);
+    : song.sort((a, b) =>
+        a.artist > b.artist ? 1 : b.artist > a.artist ? -1 : 0
+      );
+  menuItems();
 });
 
 audioPlayer.menu.addEventListener("click", openMenu);
@@ -274,15 +276,13 @@ function menuItems() {
   for (let i = 0; i < menuImg.length; i++) {
     for (let j = 0; j < menuImg.length; j++) {
       if (i === j) {
+        j += 1;
         menuImg[i].style.backgroundImage = `url(${
           song[currentSong + j].cover
         })`;
         menuArtist[i].textContent = song[currentSong + j].artist;
         menuTitle[i].textContent = song[currentSong + j].title;
-        if ( i === menuImg.length - 1) {
-        }
-        console.log(i, j)
-        console.log(song[currentSong + j])
+        console.log("div " + i, "song" + (currentSong + j));
       }
     }
   }
