@@ -104,6 +104,10 @@
     width: var(--control-button-size);
   }
 
+  #rwd {
+    transform: scale(-1, 1);
+  }
+
   #menu {
     background-image: url(../assets/img/menu.png);
   }
