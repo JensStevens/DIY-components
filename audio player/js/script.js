@@ -273,6 +273,7 @@ function menuItems() {
   const menuTitle = document.querySelectorAll(".menu-item-title");
   const menuTotalTime = document.querySelectorAll(".menu-item-total-time");
 
+//   geeft foutmelding op het einde van de array loop
   for (let i = 0; i < menuImg.length; i++) {
     for (let j = 0; j < menuImg.length; j++) {
       if (i === j) {
