@@ -13,6 +13,7 @@ const audioPlayer = {
   audio: document.getElementsByTagName("audio")[0],
   shuffleButton: document.querySelector("#shuffle"),
   menu: document.querySelector("#menu"),
+  menuContainer: document.querySelector(".menu-container"),
   inactiveHeight: "70px",
   activeHeight: "90px",
   menuHeight: "250px",
@@ -250,6 +251,8 @@ function openMenu() {
       : audioPlayer.activeHeight;
 
   coverHeight === audioPlayer.menuHeight
-    ? audioPlayer.menu.classList.remove("menu-open")
-    : audioPlayer.menu.classList.add("menu-open");
+    ? (audioPlayer.menu.classList.remove("menu-open"),
+      (audioPlayer.artistTitleContainer.style.height = "50%"))
+    : (audioPlayer.menu.classList.add("menu-open"),
+      (audioPlayer.artistTitleContainer.style.height = "12%"));
 }
