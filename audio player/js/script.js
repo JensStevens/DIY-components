@@ -110,6 +110,7 @@ function changeSong() {
   audioPlayer.cover.style.height === audioPlayer.inactiveHeight
     ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
     : null;
+menuItems();
 }
 
 function updateProgressBar() {
@@ -242,7 +243,6 @@ function shuffleSong(songArray) {
 
 function openMenu() {
   const coverHeight = audioPlayer.cover.style.height;
-  const menuImg = document.querySelector(".menu-item-img");
 
   audioPlayer.cover.style.height =
     coverHeight === audioPlayer.inactiveHeight ||
@@ -255,8 +255,37 @@ function openMenu() {
   coverHeight === audioPlayer.menuHeight
     ? (audioPlayer.menu.classList.remove("menu-open"),
       (audioPlayer.artistTitleContainer.style.height = "50%"),
-      (audioPlayer.menuContainer.style.display = "none"))
+      (audioPlayer.menuContainer.style.display = "none"),
+      (audioPlayer.menuContainer.style.opacity = "0"))
     : (audioPlayer.menu.classList.add("menu-open"),
       (audioPlayer.artistTitleContainer.style.height = "12.5%"),
-      (audioPlayer.menuContainer.style.display = "flex"));
+      (audioPlayer.menuContainer.style.display = "flex"),
+      (audioPlayer.menuContainer.style.opacity = "1"));
+
+  menuItems();
+}
+
+function menuItems () {
+    const menuImg = document.querySelectorAll(".menu-item-img");
+    const menuArtist = document.querySelectorAll(".menu-item-artist");
+    const menuTitle = document.querySelectorAll(".menu-item-title");
+    const menuTotalTime = document.querySelectorAll(".menu-item-total-time");
+    
+    for (let i = 0; i < menuImg.length; i++) {
+        for (let j = currentSong; j <= menuImg.length; j++) {
+          if (audioPlayer.audio.paused) {
+            if (i === j) {
+              menuImg[i].style.backgroundImage = `url(${song[j].cover})`;
+              menuArtist[i].textContent = song[j].artist;
+              menuTitle[i].textContent = song[j].title;
+            }
+          } else {
+            if (i + 1 === j) {
+              menuImg[i].style.backgroundImage = `url(${song[j].cover})`;
+              menuArtist[i].textContent = song[j].artist;
+              menuTitle[i].textContent = song[j].title;
+            }
+          }
+        }
+      }
 }
