@@ -15,7 +15,11 @@ const audioPlayer = {
   menu: document.querySelector("#menu"),
 };
 
-audioPlayer.cover.style.height = "70px";
+const activeHeight = "90px";
+const inactiveHeight = "70px";
+const menuHeight = "250px";
+
+audioPlayer.cover.style.height = inactiveHeight;
 audioPlayer.artistTitleContainer.style.opacity = "0";
 audioPlayer.progressContainer.style.opacity = "0";
 
@@ -103,10 +107,9 @@ function changeSong() {
   audioPlayer.title.textContent = currentSongData.title;
   audioPlayer.progressContainer.style.opacity = "1";
   audioPlayer.artistTitleContainer.style.opacity = "1";
-  if (audioPlayer.cover.style.height === "70px") {
-    audioPlayer.cover.style.height = "90px";
-  }
-  //   audioPlayer.cover.style.height = "90px";
+  audioPlayer.cover.style.height === inactiveHeight
+  ? (audioPlayer.cover.style.height = activeHeight)
+  : null;
 }
 
 function updateProgressBar() {
@@ -156,8 +159,8 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.remove("pause");
     audioPlayer.progressContainer.style.opacity = "1";
     audioPlayer.artistTitleContainer.style.opacity = "1";
-    audioPlayer.cover.style.height === "70px"
-      ? (audioPlayer.cover.style.height = "90px")
+    audioPlayer.cover.style.height === inactiveHeight
+      ? (audioPlayer.cover.style.height = activeHeight)
       : null;
   } else {
     audioPlayer.audio.pause();
@@ -167,8 +170,8 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.classList.add("pause");
     audioPlayer.progressContainer.style.opacity = "0";
     audioPlayer.artistTitleContainer.style.opacity = "0";
-    audioPlayer.cover.style.height === "90px"
-      ? (audioPlayer.cover.style.height = "70px")
+    audioPlayer.cover.style.height === activeHeight
+      ? (audioPlayer.cover.style.height = inactiveHeight)
       : null;
   }
 });
@@ -240,13 +243,13 @@ function openMenu() {
   const coverHeight = audioPlayer.cover.style.height;
 
   audioPlayer.cover.style.height =
-    coverHeight === "70px" || coverHeight === "90px"
-      ? "250px"
+    coverHeight === inactiveHeight || coverHeight === activeHeight
+      ? menuHeight
       : audioPlayer.audio.paused
-      ? "70px"
-      : "90px";
+      ? inactiveHeight
+      : activeHeight;
 
-  coverHeight === "250px"
+  coverHeight === menuHeight
     ? audioPlayer.menu.classList.remove("menu-open")
     : audioPlayer.menu.classList.add("menu-open");
 }
