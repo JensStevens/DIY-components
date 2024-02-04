@@ -242,6 +242,7 @@ function shuffleSong(songArray) {
 
 function openMenu() {
   const coverHeight = audioPlayer.cover.style.height;
+  const menuImg = document.querySelector(".menu-item-img");
 
   audioPlayer.cover.style.height =
     coverHeight === audioPlayer.inactiveHeight ||
@@ -253,7 +254,9 @@ function openMenu() {
 
   coverHeight === audioPlayer.menuHeight
     ? (audioPlayer.menu.classList.remove("menu-open"),
-      (audioPlayer.artistTitleContainer.style.height = "50%"))
+      (audioPlayer.artistTitleContainer.style.height = "50%"),
+      (audioPlayer.menuContainer.style.display = "none"))
     : (audioPlayer.menu.classList.add("menu-open"),
-      (audioPlayer.artistTitleContainer.style.height = "12%"));
+      (audioPlayer.artistTitleContainer.style.height = "12.5%"),
+      (audioPlayer.menuContainer.style.display = "flex"));
 }

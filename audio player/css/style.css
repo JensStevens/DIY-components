@@ -175,3 +175,20 @@
     height: 100%;
     width: 0;
   }
+
+  .menu-container {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5px);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    height: 62%;
+    justify-content: space-between;
+    /* margin-top: 60px; */
+    position: absolute;
+    right: 5%;
+    top: 25%;
+    transition: display 0.2s ease-in-out 0.2s;
+    width: 90%;
+  }
