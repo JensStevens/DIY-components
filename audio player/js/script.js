@@ -75,7 +75,7 @@ const song = [
     cover: "../assets/img/covers/ifyou.png",
   },
   {
-    title: "FML ([OG] feat. The Weeknd, Bon Iver & Travis Scott)",
+    title: "FML (feat. The Weeknd, Bon Iver & Travis Scott)",
     artist: "Kanye West",
     url: "../assets/audio/FML-OG.mp3",
     cover: "../assets/img/covers/kanye.jpg",
@@ -200,6 +200,10 @@ const playIcon = "url(../assets/img/play.png)";
 const pauseIcon = "url(../assets/img/pause.png)";
 
 let currentSong = 0;
+
+// -----------------PROBEERSEL----------------
+// createMenuItem();
+// -----------------PROBEERSEL----------------
 
 function changeSong() {
   const currentSongData = song[currentSong];
@@ -375,6 +379,66 @@ function openMenu() {
 
   menuItems();
 }
+
+
+// --------------PROBEERSELS----------------
+
+// poging om menu item te creeren met js maar vult dan niet meer met content.
+
+// function createMenuItem() {
+//   timer = setInterval(function () {
+//     const menuContainer = document.querySelector(".menu-container");
+//     // Create a div element with class "menu-item"
+//     const menuItemDiv = document.createElement("div");
+//     menuItemDiv.className = "menu-item";
+
+//     // Create a div element with class "menu-item-img" and append it to the menu-item div
+//     const menuItemImgDiv = document.createElement("div");
+//     menuItemImgDiv.className = "menu-item-img";
+//     menuItemDiv.appendChild(menuItemImgDiv);
+
+//     // Create a div element to hold the artist and title information
+//     const infoDiv = document.createElement("div");
+
+//     // Create a paragraph element with class "menu-item-artist" and append it to the info div
+//     const artistParagraph = document.createElement("p");
+//     artistParagraph.className = "menu-item-artist";
+//     infoDiv.appendChild(artistParagraph);
+
+//     // Create a paragraph element with class "menu-item-title" and append it to the info div
+//     const titleParagraph = document.createElement("p");
+//     titleParagraph.className = "menu-item-title";
+//     infoDiv.appendChild(titleParagraph);
+
+//     // Append the info div to the menu-item div
+//     menuItemDiv.appendChild(infoDiv);
+
+//     // Create a paragraph element with class "menu-item-total-time" and append it to the menu-item div
+//     const totalTimeParagraph = document.createElement("p");
+//     totalTimeParagraph.className = "menu-item-total-time";
+//     totalTimeParagraph.textContent = "0:00";
+//     menuItemDiv.appendChild(totalTimeParagraph);
+
+//     // Finally, append the menu-item div to the document body or any desired parent element
+//     menuContainer.appendChild(menuItemDiv);
+
+//     getMenuItem();
+//     createMenuItem_Stop();
+//   }, 0);
+// }
+
+// function getMenuItem() {
+//   audioPlayer.menuItem = document.querySelectorAll(".menu-item");
+// }
+
+// function createMenuItem_Stop() {
+//   if (audioPlayer.menuItem.length === song.length) {
+//     clearInterval(timer);
+//   }
+// }
+
+// --------------PROBEERSELS----------------
+
 
 // function menuItems() {
 //   //   geeft foutmelding op het einde van de array loop
