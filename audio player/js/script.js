@@ -23,6 +23,10 @@ const audioPlayer = {
   inactiveHeight: "70px",
   activeHeight: "90px",
   menuHeight: "330px",
+  menuImg: document.querySelectorAll(".menu-item-img"),
+  menuArtist: document.querySelectorAll(".menu-item-artist"),
+  menuTitle: document.querySelectorAll(".menu-item-title"),
+  menuTotalTime: document.querySelectorAll(".menu-item-total-time"),
 };
 
 audioPlayer.cover.style.height = audioPlayer.inactiveHeight;
@@ -276,21 +280,16 @@ function openMenu() {
 }
 
 function menuItems() {
-  const menuImg = document.querySelectorAll(".menu-item-img");
-  const menuArtist = document.querySelectorAll(".menu-item-artist");
-  const menuTitle = document.querySelectorAll(".menu-item-title");
-  const menuTotalTime = document.querySelectorAll(".menu-item-total-time");
-
   //   geeft foutmelding op het einde van de array loop
-  for (let i = 0; i < menuImg.length; i++) {
+  for (let i = 0; i < audioPlayer.menuImg.length; i++) {
     for (let j = 0; j < song.length; j++) {
       if (i === j) {
         j += 1;
-        menuImg[i].style.backgroundImage = `url(${
+        audioPlayer.menuImg[i].style.backgroundImage = `url(${
           song[currentSong + j].cover
         })`;
-        menuArtist[i].textContent = song[currentSong + j].artist;
-        menuTitle[i].textContent = song[currentSong + j].title;
+        audioPlayer.menuArtist[i].textContent = song[currentSong + j].artist;
+        audioPlayer.menuTitle[i].textContent = song[currentSong + j].title;
         console.log("div " + i, "song" + (currentSong + j), song.length);
       }
     }
