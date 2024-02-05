@@ -56,12 +56,12 @@ body {
   width: 100%;
 }
 
-div:last-of-type.control-button {
-    margin-right: 25px;
+div:first-of-type.control-button {
+  margin-left: 25px;
 }
 
-div:first-of-type.control-button {
-    margin-left: 25px;
+div:last-of-type.control-button {
+  margin-right: 25px;
 }
 
 .control-button {
@@ -83,11 +83,35 @@ div:first-of-type.control-button {
   scale: 1.05;
 }
 
-#artist {
-  font-weight: bold;
-  margin-left: 8px;
-  text-align: right;
-  width: fit-content;
+#play {
+  background-image: url(../assets/img/play.png);
+  height: var(--play-button-size);
+  width: var(--play-button-size);
+}
+
+#fwd,
+#rwd {
+  background-image: url(../assets/img/ffwd.png);
+  height: var(--control-button-size);
+  width: var(--control-button-size);
+}
+
+#rwd {
+  transform: scale(-1, 1);
+}
+
+#shuffle {
+  background-image: url(../assets/img/shuffle.png);
+}
+
+#menu {
+  background-image: url(../assets/img/menu.png);
+}
+
+#menu,
+#shuffle {
+  height: var(--shuffle-button-size);
+  width: var(--shuffle-button-size);
 }
 
 #artist-title-container {
@@ -102,40 +126,24 @@ div:first-of-type.control-button {
   width: 100%;
 }
 
+#artist {
+  font-weight: bold;
+  margin-left: 8px;
+  text-align: right;
+  width: fit-content;
+}
+
 #artist::after {
   content: "-";
   margin: 0 2px;
 }
 
-#fwd,
-#rwd {
-  background-image: url(../assets/img/ffwd.png);
-  height: var(--control-button-size);
-  width: var(--control-button-size);
-}
-
-#rwd {
-  transform: scale(-1, 1);
-}
-
-#menu {
-  background-image: url(../assets/img/menu.png);
-}
-
-#shuffle {
-  background-image: url(../assets/img/shuffle.png);
-}
-
-#menu,
-#shuffle {
-  height: var(--shuffle-button-size);
-  width: var(--shuffle-button-size);
-}
-
-#play {
-  background-image: url(../assets/img/play.png);
-  height: var(--play-button-size);
-  width: var(--play-button-size);
+.title-container {
+  max-width: 40%;
+  overflow: auto;
+  padding-right: 25px;
+  white-space: nowrap;
+  width: fit-content;
 }
 
 #progress-container {
@@ -148,23 +156,10 @@ div:first-of-type.control-button {
   width: 80%;
 }
 
-#title {
-  text-align: left;
-}
-
-.title-container {
-  max-width: 40%;
-  overflow: auto;
-  padding-right: 25px;
-  white-space: nowrap;
-  width: fit-content;
-}
-
 #total-time,
 #current-time {
   font-size: 8px;
   margin: -20px 4px 0;
-
 }
 
 .progress {
@@ -197,11 +192,11 @@ div:first-of-type.control-button {
   transition: opacity 0.3s ease-in-out, height 0.3s ease-out;
   width: 100%;
   scrollbar-width: none;
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
 }
 
 .menu-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .menu-item {
