@@ -290,7 +290,7 @@ function menuItems() {
         })`;
         audioPlayer.menuArtist[i].textContent = song[currentSong + j].artist;
         audioPlayer.menuTitle[i].textContent = song[currentSong + j].title;
-        console.log("div " + i, "song" + (currentSong + j), song.length);
+        console.log("div " + i + " --", "song " + (currentSong + j) + " --","total songs |" + song.length + "|");
       }
     }
   }
