@@ -273,9 +273,9 @@ function menuItems() {
   const menuTitle = document.querySelectorAll(".menu-item-title");
   const menuTotalTime = document.querySelectorAll(".menu-item-total-time");
 
-//   geeft foutmelding op het einde van de array loop
+  //   geeft foutmelding op het einde van de array loop
   for (let i = 0; i < menuImg.length; i++) {
-    for (let j = 0; j < menuImg.length; j++) {
+    for (let j = 0; j <= song.length - 1; j++) {
       if (i === j) {
         j += 1;
         menuImg[i].style.backgroundImage = `url(${
@@ -283,7 +283,7 @@ function menuItems() {
         })`;
         menuArtist[i].textContent = song[currentSong + j].artist;
         menuTitle[i].textContent = song[currentSong + j].title;
-        console.log("div " + i, "song" + (currentSong + j));
+        console.log("div " + i, "song" + (currentSong + j), (song.length - 1));
       }
     }
   }
