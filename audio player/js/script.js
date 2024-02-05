@@ -201,9 +201,9 @@ const pauseIcon = "url(../assets/img/pause.png)";
 
 let currentSong = 0;
 
-// -----------------PROBEERSEL----------------
+// -----------------PROBEERSELS----------------
 // createMenuItem();
-// -----------------PROBEERSEL----------------
+// -----------------PROBEERSELS----------------
 
 function changeSong() {
   const currentSongData = song[currentSong];
