@@ -23,6 +23,7 @@ const audioPlayer = {
   inactiveHeight: "70px",
   activeHeight: "90px",
   menuHeight: "330px",
+  menuItem: document.querySelectorAll(".menu-item"),
   menuImg: document.querySelectorAll(".menu-item-img"),
   menuArtist: document.querySelectorAll(".menu-item-artist"),
   menuTitle: document.querySelectorAll(".menu-item-title"),
@@ -41,6 +42,30 @@ const song = [
     cover: "../assets/img/dbr.jpg",
   },
   {
+    title: "Grammy Week (feat. Don Toliver)",
+    artist: "Kaash Paige",
+    url: "../assets/audio/GrammyWeek.mp3",
+    cover: "../assets/img/kaash.jpg",
+  },
+  {
+    title: "Die Wit Em",
+    artist: "ScHoolboy Q",
+    url: "../assets/audio/DieWitEm.m4a",
+    cover: "../assets/img/crash-talk.jpg",
+  },
+  {
+    title: "CAN'T SAY",
+    artist: "Travis Scott",
+    url: "../assets/audio/CANTSAY.m4a",
+    cover: "../assets/img/astroworld.jpg",
+  },
+  {
+    title: "High (feat. Elton John)",
+    artist: "Young Thug",
+    url: "../assets/audio/High.m4a",
+    cover: "../assets/img/high.jpg",
+  },
+  {
     title: "Backyard",
     artist: "Travis Scott",
     url: "../assets/audio/Backyard.mp3",
@@ -53,10 +78,34 @@ const song = [
     cover: "../assets/img/ifyou.png",
   },
   {
-    title: "FML (O.G. Version Feat. The Weeknd, Bon Iver & Travis Scott)",
+    title: "FML ([OG] feat. The Weeknd, Bon Iver & Travis Scott)",
     artist: "Kanye West",
     url: "../assets/audio/FML-OG.mp3",
     cover: "../assets/img/kanye.jpg",
+  },
+  {
+    title: "LOVE",
+    artist: "Kendrick Lamar",
+    url: "../assets/audio/LOVE.m4a",
+    cover: "../assets/img/damn.jpg",
+  },
+  {
+    title: "R.I.P. SCREW",
+    artist: "Travis Scott",
+    url: "../assets/audio/ripSCREW.m4a",
+    cover: "../assets/img/astroworld.jpg",
+  },
+  {
+    title: "Salvation",
+    artist: "K Forest",
+    url: "../assets/audio/Salvation.m4a",
+    cover: "../assets/img/forest.jpg",
+  },
+  {
+    title: "VIP",
+    artist: "Amir Obè",
+    url: "../assets/audio/vip.mp3",
+    cover: "../assets/img/amir.jpg",
   },
   {
     title: "Days In The East",
@@ -65,16 +114,40 @@ const song = [
     cover: "../assets/img/daysITE.jpeg",
   },
   {
+    title: "Position",
+    artist: "Cassow",
+    url: "../assets/audio/position.mp3",
+    cover: "../assets/img/cassow.jpg",
+  },
+  {
     title: "Drugs You Should Try",
     artist: "Travis Scott",
     url: "../assets/audio/DrugsYouShouldTry.mp3",
     cover: "../assets/img/dbr.jpg",
   },
   {
+    title: "Novacane",
+    artist: "Frank Ocean",
+    url: "../assets/audio/Novacane.mp3",
+    cover: "../assets/img/novacane.jpg",
+  },
+  {
+    title: "Persian Rugs",
+    artist: "PARTYNEXTDOOR",
+    url: "../assets/audio/PersianRugs.mp3",
+    cover: "../assets/img/persianrugs.jpg",
+  },
+  {
     title: "Highest In The Room",
     artist: "Travis Scott",
     url: "../assets/audio/hitr.m4a",
     cover: "../assets/img/hitr.png",
+  },
+  {
+    title: "Nikes",
+    artist: "Frank Ocean",
+    url: "../assets/audio/nikes.m4a",
+    cover: "../assets/img/blond.jpg",
   },
   {
     title: "Flex",
@@ -89,16 +162,40 @@ const song = [
     cover: "../assets/img/hoh.png",
   },
   {
+    title: "LUST (feat. Zacari)",
+    artist: "Kendrick Lamar",
+    url: "../assets/audio/LUST.m4a",
+    cover: "../assets/img/damn.jpg",
+  },
+  {
     title: "I-95",
     artist: "Tory Lanez",
     url: "../assets/audio/I-95.mp3",
     cover: "../assets/img/lostcause.jpg",
   },
   {
+    title: "Nothing From Me",
+    artist: "Norman Perry",
+    url: "../assets/audio/NothingFromMe.m4a",
+    cover: "../assets/img/norman.jpg",
+  },
+  {
     title: "Rudolph",
     artist: "Don Toliver",
     url: "../assets/audio/rudolph.mp3",
     cover: "../assets/img/rudolph.jpg",
+  },
+  {
+    title: "CrasH",
+    artist: "ScHoolboy Q",
+    url: "../assets/audio/CrasH.m4a",
+    cover: "../assets/img/crash-talk.jpg",
+  },
+  {
+    title: "ASTROTHUNDER",
+    artist: "Travis Scott",
+    url: "../assets/audio/ASTROTHUNDER.m4a",
+    cover: "../assets/img/astroworld.jpg",
   },
 ];
 
@@ -279,19 +376,43 @@ function openMenu() {
   menuItems();
 }
 
+// function menuItems() {
+//   //   geeft foutmelding op het einde van de array loop
+//   for (let i = 0; i < audioPlayer.menuImg.length; i++) {
+//     for (let j = 0; j < song.length; j++) {
+//       if (i === j) {
+//         j += 1;
+//         audioPlayer.menuImg[i].style.backgroundImage = `url(${
+//           song[currentSong + j].cover
+//         })`;
+//         audioPlayer.menuArtist[i].textContent = song[currentSong + j].artist;
+//         audioPlayer.menuTitle[i].textContent = song[currentSong + j].title;
+//         console.log("div " + i + " --", "song " + (currentSong + j) + " --","total songs |" + song.length + "|");
+//       }
+//     }
+//   }
+// }
+
 function menuItems() {
-  //   geeft foutmelding op het einde van de array loop
-  for (let i = 0; i < audioPlayer.menuImg.length; i++) {
-    for (let j = 0; j < song.length; j++) {
-      if (i === j) {
-        j += 1;
-        audioPlayer.menuImg[i].style.backgroundImage = `url(${
-          song[currentSong + j].cover
-        })`;
-        audioPlayer.menuArtist[i].textContent = song[currentSong + j].artist;
-        audioPlayer.menuTitle[i].textContent = song[currentSong + j].title;
-        console.log("div " + i + " --", "song " + (currentSong + j) + " --","total songs |" + song.length + "|");
-      }
-    }
+  for (let i = 0; i < audioPlayer.menuItem.length; i++) {
+    const songIndex = (currentSong + 1 + i) % song.length;
+
+    audioPlayer.menuImg[
+      i
+    ].style.backgroundImage = `url(${song[songIndex].cover})`;
+    audioPlayer.menuArtist[i].textContent = song[songIndex].artist;
+    audioPlayer.menuTitle[i].textContent = song[songIndex].title;
+
+    // Add click event listener to each menu item
+    audioPlayer.menuItem[i].addEventListener("click", function () {
+      currentSong = songIndex; // Update the current song based on the menu item clicked
+      changeSong(); // Play the corresponding song
+    });
+
+    console.log(
+      "div " + i + " --",
+      "song " + songIndex + " --",
+      "total songs |" + song.length + "|"
+    );
   }
 }
