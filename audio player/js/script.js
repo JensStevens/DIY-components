@@ -2,6 +2,7 @@
 // make title that is too long scroll automatically
 // make menu items loop when at the end of the list, (no repeating items)
 // make menu item clickable and play the selected song
+// make total duration for items in menu
 
 
 const audioPlayer = {
