@@ -1,8 +1,5 @@
 // TODO
 // make title that is too long scroll automatically
-// make menu items loop when at the end of the list, (no repeating items)
-// make menu item clickable and play the selected song
-// fix total duration for items in menu
 
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
@@ -406,16 +403,19 @@ function menuItems() {
     audioPlayer.menuArtist[i].textContent = song[songIndex].artist;
     audioPlayer.menuTitle[i].textContent = song[songIndex].title;
 
-    // Add click event listener to each menu item
-    audioPlayer.menuItem[i].addEventListener("click", function () {
-      currentSong = songIndex; // Update the current song based on the menu item clicked
-      changeSong(); // Play the corresponding song
+    const dummyAudio = new Audio(song[songIndex].url);
+    dummyAudio.addEventListener("loadedmetadata", function () {
+      const totalMinutes = Math.floor(dummyAudio.duration / 60);
+      const totalSeconds = Math.floor(dummyAudio.duration % 60);
+
+      audioPlayer.menuTotalTime[i].textContent = `${totalMinutes}:${
+        totalSeconds < 10 ? "0" : ""
+      }${totalSeconds}`;
     });
 
-    console.log(
-      "div " + i + " --",
-      "song " + songIndex + " --",
-      "total songs |" + song.length + "|"
-    );
+    audioPlayer.menuItem[i].addEventListener("click", function () {
+      currentSong = songIndex;
+      changeSong();
+    });
   }
 }
