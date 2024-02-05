@@ -16,7 +16,7 @@ const audioPlayer = {
   menuContainer: document.querySelector(".menu-container"),
   inactiveHeight: "70px",
   activeHeight: "90px",
-  menuHeight: "320px",
+  menuHeight: "329px",
 };
 
 audioPlayer.cover.style.height = audioPlayer.inactiveHeight;
@@ -260,7 +260,7 @@ function openMenu() {
       (audioPlayer.menuContainer.style.display = "none"),
       (audioPlayer.menuContainer.style.opacity = "0"))
     : (audioPlayer.menu.classList.add("menu-open"),
-      (audioPlayer.artistTitleContainer.style.height = "10%"),
+      (audioPlayer.artistTitleContainer.style.height = "8%"),
       (audioPlayer.menuContainer.style.display = "flex"),
       (audioPlayer.menuContainer.style.opacity = "1"));
 

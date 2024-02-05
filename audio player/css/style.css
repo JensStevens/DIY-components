@@ -97,7 +97,7 @@ div:first-of-type.control-button {
   font-size: 10px;
   height: 50%;
   justify-content: center;
-  padding-bottom: 5px;
+  margin-bottom: 7px;
   transition: height ease-out 0.2s, opacity ease-in 0.1s;
   width: 100%;
 }
@@ -196,7 +196,7 @@ div:first-of-type.control-button {
   opacity: 0;
   transition: opacity 0.3s ease-in-out 0.3s, display 0.3s ease-in-out 0.3s;
   width: 100%;
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;
   -ms-overflow-style: none; 
 }
 
@@ -208,6 +208,7 @@ div:first-of-type.control-button {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
+  cursor: pointer;
   display: flex;
   height: 55px;
   justify-content: space-between;
@@ -221,9 +222,10 @@ div:first-of-type.control-button {
   background-position: right;
   background-size: cover;
   border-radius: 5px;
-  height: 45px;
+  height: 40px;
+  margin-right: 5px;
   transition: background-image 0.2s ease-out 0.1s;
-  width: 45px;
+  width: 40px;
 }
 
 .menu-item div:nth-child(2) {
@@ -233,11 +235,12 @@ div:first-of-type.control-button {
 .menu-item-artist,
 .menu-item-title,
 .menu-item-total-time {
-  margin: 0;
+  margin: 1px;
   font-size: 12px;
 }
 
-.menu-item-artist {
+.menu-item-artist,
+.menu-item-total-time {
   font-weight: bold;
   font-size: 10px;
 }
