@@ -39,165 +39,168 @@ const song = [
     title: "Days Before Rodeo/The Prayer",
     artist: "Travis Scott",
     url: "../assets/audio/ThePrayer.mp3",
-    cover: "../assets/img/dbr.jpg",
+    cover: "../assets/img/covers/dbr.jpg",
   },
   {
     title: "Grammy Week (feat. Don Toliver)",
     artist: "Kaash Paige",
     url: "../assets/audio/GrammyWeek.mp3",
-    cover: "../assets/img/kaash.jpg",
+    cover: "../assets/img/covers/kaash.jpg",
   },
   {
     title: "Die Wit Em",
     artist: "ScHoolboy Q",
     url: "../assets/audio/DieWitEm.m4a",
-    cover: "../assets/img/crash-talk.jpg",
+    cover: "../assets/img/covers/crash-talk.jpg",
   },
   {
     title: "CAN'T SAY",
     artist: "Travis Scott",
     url: "../assets/audio/CANTSAY.m4a",
-    cover: "../assets/img/astroworld.jpg",
+    cover: "../assets/img/covers/astroworld.jpg",
   },
   {
     title: "High (feat. Elton John)",
     artist: "Young Thug",
     url: "../assets/audio/High.m4a",
-    cover: "../assets/img/high.jpg",
+    cover: "../assets/img/covers/high.jpg",
   },
   {
     title: "Backyard",
     artist: "Travis Scott",
     url: "../assets/audio/Backyard.mp3",
-    cover: "../assets/img/dbr.jpg",
+    cover: "../assets/img/covers/dbr.jpg",
   },
   {
     title: "6 God",
     artist: "Drake",
     url: "../assets/audio/6God.mp3",
-    cover: "../assets/img/ifyou.png",
+    cover: "../assets/img/covers/ifyou.png",
   },
   {
     title: "FML ([OG] feat. The Weeknd, Bon Iver & Travis Scott)",
     artist: "Kanye West",
     url: "../assets/audio/FML-OG.mp3",
-    cover: "../assets/img/kanye.jpg",
+    cover: "../assets/img/covers/kanye.jpg",
   },
   {
     title: "LOVE",
     artist: "Kendrick Lamar",
     url: "../assets/audio/LOVE.m4a",
-    cover: "../assets/img/damn.jpg",
+    cover: "../assets/img/covers/damn.jpg",
   },
   {
     title: "R.I.P. SCREW",
     artist: "Travis Scott",
     url: "../assets/audio/ripSCREW.m4a",
-    cover: "../assets/img/astroworld.jpg",
+    cover: "../assets/img/covers/astroworld.jpg",
   },
   {
     title: "Salvation",
     artist: "K Forest",
     url: "../assets/audio/Salvation.m4a",
-    cover: "../assets/img/forest.jpg",
+    cover: "../assets/img/covers/forest.jpg",
   },
   {
     title: "VIP",
     artist: "Amir Obè",
     url: "../assets/audio/vip.mp3",
-    cover: "../assets/img/amir.jpg",
+    cover: "../assets/img/covers/amir.jpg",
   },
   {
     title: "Days In The East",
     artist: "Drake",
     url: "../assets/audio/DaysInTheEast.mp3",
-    cover: "../assets/img/daysITE.jpeg",
+    cover: "../assets/img/covers/daysITE.jpeg",
   },
   {
     title: "Position",
     artist: "Cassow",
     url: "../assets/audio/position.mp3",
-    cover: "../assets/img/cassow.jpg",
+    cover: "../assets/img/covers/cassow.jpg",
   },
   {
     title: "Drugs You Should Try",
     artist: "Travis Scott",
     url: "../assets/audio/DrugsYouShouldTry.mp3",
-    cover: "../assets/img/dbr.jpg",
+    cover: "../assets/img/covers/dbr.jpg",
   },
   {
     title: "Novacane",
     artist: "Frank Ocean",
     url: "../assets/audio/Novacane.mp3",
-    cover: "../assets/img/novacane.jpg",
+    cover: "../assets/img/covers/novacane.jpg",
   },
   {
     title: "Persian Rugs",
     artist: "PARTYNEXTDOOR",
     url: "../assets/audio/PersianRugs.mp3",
-    cover: "../assets/img/persianrugs.jpg",
+    cover: "../assets/img/covers/persianrugs.jpg",
   },
   {
     title: "Highest In The Room",
     artist: "Travis Scott",
     url: "../assets/audio/hitr.m4a",
-    cover: "../assets/img/hitr.png",
+    cover: "../assets/img/covers/hitr.png",
   },
   {
     title: "Nikes",
     artist: "Frank Ocean",
     url: "../assets/audio/nikes.m4a",
-    cover: "../assets/img/blond.jpg",
+    cover: "../assets/img/covers/blond.jpg",
   },
   {
     title: "Flex",
     artist: "Tory Lanez",
     url: "../assets/audio/flex.m4a",
-    cover: "../assets/img/itoldu.jpeg",
+    cover: "../assets/img/covers/itoldu.jpeg",
   },
   {
     title: "Heaven Or Hell",
     artist: "Don Toliver",
     url: "../assets/audio/HeavenOrHell.m4a",
-    cover: "../assets/img/hoh.png",
+    cover: "../assets/img/covers/hoh.png",
   },
   {
     title: "LUST (feat. Zacari)",
     artist: "Kendrick Lamar",
     url: "../assets/audio/LUST.m4a",
-    cover: "../assets/img/damn.jpg",
+    cover: "../assets/img/covers/damn.jpg",
   },
   {
     title: "I-95",
     artist: "Tory Lanez",
     url: "../assets/audio/I-95.mp3",
-    cover: "../assets/img/lostcause.jpg",
+    cover: "../assets/img/covers/lostcause.jpg",
   },
   {
     title: "Nothing From Me",
     artist: "Norman Perry",
     url: "../assets/audio/NothingFromMe.m4a",
-    cover: "../assets/img/norman.jpg",
+    cover: "../assets/img/covers/norman.jpg",
   },
   {
     title: "Rudolph",
     artist: "Don Toliver",
     url: "../assets/audio/rudolph.mp3",
-    cover: "../assets/img/rudolph.jpg",
+    cover: "../assets/img/covers/rudolph.jpg",
   },
   {
     title: "CrasH",
     artist: "ScHoolboy Q",
     url: "../assets/audio/CrasH.m4a",
-    cover: "../assets/img/crash-talk.jpg",
+    cover: "../assets/img/covers/crash-talk.jpg",
   },
   {
     title: "ASTROTHUNDER",
     artist: "Travis Scott",
     url: "../assets/audio/ASTROTHUNDER.m4a",
-    cover: "../assets/img/astroworld.jpg",
+    cover: "../assets/img/covers/astroworld.jpg",
   },
 ];
+
+const playIcon = "url(../assets/img/play.png)";
+const pauseIcon = "url(../assets/img/pause.png)";
 
 let currentSong = 0;
 
@@ -206,7 +209,7 @@ function changeSong() {
   audioPlayer.audio.src = currentSongData.url;
   audioPlayer.cover.style.backgroundImage = `url(${currentSongData.cover})`;
   audioPlayer.audio.play();
-  audioPlayer.play.style.backgroundImage = "url(../assets/img/pause.png)";
+  audioPlayer.play.style.backgroundImage = pauseIcon;
   audioPlayer.play.style.scale = "1.1";
   audioPlayer.play.classList.add("playing");
   audioPlayer.play.classList.remove("pause");
@@ -261,7 +264,7 @@ audioPlayer.forward.addEventListener("click", function () {
 audioPlayer.play.addEventListener("click", function () {
   if (audioPlayer.audio.paused) {
     audioPlayer.audio.play();
-    audioPlayer.play.style.backgroundImage = "url(../assets/img/pause.png)";
+    audioPlayer.play.style.backgroundImage = pauseIcon;
     audioPlayer.play.style.scale = "1.1";
     audioPlayer.play.classList.add("playing");
     audioPlayer.play.classList.remove("pause");
@@ -272,7 +275,7 @@ audioPlayer.play.addEventListener("click", function () {
       : null;
   } else {
     audioPlayer.audio.pause();
-    audioPlayer.play.style.backgroundImage = "url(../assets/img/play.png)";
+    audioPlayer.play.style.backgroundImage = playIcon;
     audioPlayer.play.style.scale = "1";
     audioPlayer.play.classList.remove("playing");
     audioPlayer.play.classList.add("pause");
