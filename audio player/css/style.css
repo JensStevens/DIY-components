@@ -224,7 +224,7 @@ div:last-of-type.control-button {
   border-radius: 5px;
   height: 40px;
   margin-right: 5px;
-  transition: background-image 0.2s ease-out 0.1s;
+  transition: background-image 0.3s ease-in-out 0.1s;
   width: 40px;
 }
 
