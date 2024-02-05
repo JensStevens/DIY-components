@@ -1,3 +1,9 @@
+// TODO
+// make title that is too long scroll automatically
+// make menu items loop when at the end of the list, (no repeating items)
+// make menu item clickable and play the selected song
+
+
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
   artist: document.querySelector("#artist"),
@@ -16,7 +22,7 @@ const audioPlayer = {
   menuContainer: document.querySelector(".menu-container"),
   inactiveHeight: "70px",
   activeHeight: "90px",
-  menuHeight: "329px",
+  menuHeight: "330px",
 };
 
 audioPlayer.cover.style.height = audioPlayer.inactiveHeight;
@@ -258,11 +264,13 @@ function openMenu() {
     ? (audioPlayer.menu.classList.remove("menu-open"),
       (audioPlayer.artistTitleContainer.style.height = "50%"),
       (audioPlayer.menuContainer.style.display = "none"),
-      (audioPlayer.menuContainer.style.opacity = "0"))
+      (audioPlayer.menuContainer.style.opacity = "0"),
+      (audioPlayer.progressContainer.style.bottom = "5px"))
     : (audioPlayer.menu.classList.add("menu-open"),
       (audioPlayer.artistTitleContainer.style.height = "8%"),
       (audioPlayer.menuContainer.style.display = "flex"),
-      (audioPlayer.menuContainer.style.opacity = "1"));
+      (audioPlayer.menuContainer.style.opacity = "1"),
+      (audioPlayer.progressContainer.style.bottom = "247px"));
 
   menuItems();
 }
