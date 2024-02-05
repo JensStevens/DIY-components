@@ -25,7 +25,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: background-image 0.2s ease-in, height 0.3s ease;
+  transition: background-image 0.2s ease-in, height 0.3s ease-in-out;
   width: 300px;
   z-index: 10;
 }
@@ -98,7 +98,7 @@ div:first-of-type.control-button {
   height: 50%;
   justify-content: center;
   margin-bottom: 7px;
-  transition: height ease-out 0.2s, opacity ease-in 0.1s;
+  transition: height 0.3s ease-in, opacity ease-in 0.1s;
   width: 100%;
 }
 
@@ -140,13 +140,11 @@ div:first-of-type.control-button {
 
 #progress-container {
   align-items: center;
-  bottom: 5px;
   display: flex;
   justify-content: center;
-  left: 10%;
+  margin: 0 auto;
   opacity: 1;
-  position: absolute;
-  transition: opacity 0.2s ease-out 0.2s;
+  transition: opacity 0.2s ease-out;
   width: 80%;
 }
 
@@ -165,7 +163,8 @@ div:first-of-type.control-button {
 #total-time,
 #current-time {
   font-size: 8px;
-  margin: 10px 10px 0;
+  margin: -20px 4px 0;
+
 }
 
 .progress {
@@ -173,7 +172,7 @@ div:first-of-type.control-button {
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   height: 3px;
-  margin-top: 10px;
+  margin-top: -20px;
   overflow: hidden;
   width: 100%;
 }
@@ -188,14 +187,14 @@ div:first-of-type.control-button {
 .menu-container {
   align-items: center;
   border-radius: 8px;
-  display: none;
+  display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 0;
   justify-content: space-between;
   margin-bottom: 2%;
   overflow: scroll;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out 0.3s, display 0.3s ease-in-out 0.3s;
+  transition: opacity 0.3s ease-in-out, height 0.3s ease-out;
   width: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none; 
@@ -216,6 +215,11 @@ div:first-of-type.control-button {
   margin-bottom: 3px;
   padding: 5px;
   width: 95%;
+  transition: background-color 0.3s ease-out;
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .menu-item-img {

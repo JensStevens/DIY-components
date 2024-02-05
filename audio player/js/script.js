@@ -264,12 +264,12 @@ function openMenu() {
   coverHeight === audioPlayer.menuHeight
     ? (audioPlayer.menu.classList.remove("menu-open"),
       (audioPlayer.artistTitleContainer.style.height = "50%"),
-      (audioPlayer.menuContainer.style.display = "none"),
+      (audioPlayer.menuContainer.style.height = "0"),
       (audioPlayer.menuContainer.style.opacity = "0"),
       (audioPlayer.progressContainer.style.bottom = "5px"))
     : (audioPlayer.menu.classList.add("menu-open"),
-      (audioPlayer.artistTitleContainer.style.height = "8%"),
-      (audioPlayer.menuContainer.style.display = "flex"),
+      (audioPlayer.artistTitleContainer.style.height = "10%"),
+      (audioPlayer.menuContainer.style.height = "100%"),
       (audioPlayer.menuContainer.style.opacity = "1"),
       (audioPlayer.progressContainer.style.bottom = "247px"));
 
