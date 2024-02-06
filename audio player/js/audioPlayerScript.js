@@ -202,7 +202,7 @@ const pauseIcon = "url(../assets/img/pause.png)";
 let currentSong = 0;
 
 // -----------------PROBEERSELS----------------
-// createMenuItem();
+createMenuItem();
 // -----------------PROBEERSELS----------------
 
 function changeSong() {
@@ -378,63 +378,59 @@ function openMenu() {
   menuItems();
 }
 
-// --------------PROBEERSELS----------------
+function createMenuItem() {
+  timer = setInterval(function () {
+    const menuContainer = document.querySelector(".menu-container");
+    // Create a div element with class "menu-item"
+    const menuItemDiv = document.createElement("div");
+    menuItemDiv.className = "menu-item";
 
-// poging om menu item te creeren met js maar vult dan niet meer met content.
+    // Create a div element with class "menu-item-img" and append it to the menu-item div
+    const menuItemImgDiv = document.createElement("div");
+    menuItemImgDiv.className = "menu-item-img";
+    menuItemDiv.appendChild(menuItemImgDiv);
 
-// function createMenuItem() {
-//   timer = setInterval(function () {
-//     const menuContainer = document.querySelector(".menu-container");
-//     // Create a div element with class "menu-item"
-//     const menuItemDiv = document.createElement("div");
-//     menuItemDiv.className = "menu-item";
+    // Create a div element to hold the artist and title information
+    const infoDiv = document.createElement("div");
 
-//     // Create a div element with class "menu-item-img" and append it to the menu-item div
-//     const menuItemImgDiv = document.createElement("div");
-//     menuItemImgDiv.className = "menu-item-img";
-//     menuItemDiv.appendChild(menuItemImgDiv);
+    // Create a paragraph element with class "menu-item-artist" and append it to the info div
+    const artistParagraph = document.createElement("p");
+    artistParagraph.className = "menu-item-artist";
+    infoDiv.appendChild(artistParagraph);
 
-//     // Create a div element to hold the artist and title information
-//     const infoDiv = document.createElement("div");
+    // Create a paragraph element with class "menu-item-title" and append it to the info div
+    const titleParagraph = document.createElement("p");
+    titleParagraph.className = "menu-item-title";
+    infoDiv.appendChild(titleParagraph);
 
-//     // Create a paragraph element with class "menu-item-artist" and append it to the info div
-//     const artistParagraph = document.createElement("p");
-//     artistParagraph.className = "menu-item-artist";
-//     infoDiv.appendChild(artistParagraph);
+    // Append the info div to the menu-item div
+    menuItemDiv.appendChild(infoDiv);
 
-//     // Create a paragraph element with class "menu-item-title" and append it to the info div
-//     const titleParagraph = document.createElement("p");
-//     titleParagraph.className = "menu-item-title";
-//     infoDiv.appendChild(titleParagraph);
+    // Create a paragraph element with class "menu-item-total-time" and append it to the menu-item div
+    const totalTimeParagraph = document.createElement("p");
+    totalTimeParagraph.className = "menu-item-total-time";
+    totalTimeParagraph.textContent = "0:00";
+    menuItemDiv.appendChild(totalTimeParagraph);
 
-//     // Append the info div to the menu-item div
-//     menuItemDiv.appendChild(infoDiv);
+    // Finally, append the menu-item div to the document body or any desired parent element
+    menuContainer.appendChild(menuItemDiv);
 
-//     // Create a paragraph element with class "menu-item-total-time" and append it to the menu-item div
-//     const totalTimeParagraph = document.createElement("p");
-//     totalTimeParagraph.className = "menu-item-total-time";
-//     totalTimeParagraph.textContent = "0:00";
-//     menuItemDiv.appendChild(totalTimeParagraph);
+    getMenuItem();
+    createMenuItem_Stop();
+  }, 0);
+}
 
-//     // Finally, append the menu-item div to the document body or any desired parent element
-//     menuContainer.appendChild(menuItemDiv);
+function getMenuItem() {
+  audioPlayer.menuItem = document.querySelectorAll(".menu-item");
+  audioPlayer.menuImg = document.querySelectorAll(".menu-item-img");
+  audioPlayer.menuArtist = document.querySelectorAll(".menu-item-artist");
+  audioPlayer.menuTitle = document.querySelectorAll(".menu-item-title");
+  audioPlayer.menuTotalTime = document.querySelectorAll(".menu-item-total-time");
+}
 
-//     getMenuItem();
-//     createMenuItem_Stop();
-//   }, 0);
-// }
-
-// function getMenuItem() {
-//   audioPlayer.menuItem = document.querySelectorAll(".menu-item");
-// }
-
-// function createMenuItem_Stop() {
-//   if (audioPlayer.menuItem.length === song.length) {
-//     clearInterval(timer);
-//   }
-// }
-
-// --------------PROBEERSELS----------------
+function createMenuItem_Stop() {
+  audioPlayer.menuItem.length === song.length - 1 ? clearInterval(timer) : null;
+}
 
 // function menuItems() {
 //   //   geeft foutmelding op het einde van de array loop
