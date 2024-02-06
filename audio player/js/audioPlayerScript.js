@@ -202,9 +202,7 @@ const pauseIcon = "url(../assets/img/pause.png)";
 
 let currentSong = 0;
 
-// -----------------PROBEERSELS----------------
 createMenuItem();
-// -----------------PROBEERSELS----------------
 
 function changeSong() {
   const currentSongData = song[currentSong];
@@ -220,8 +218,14 @@ function changeSong() {
   audioPlayer.progressContainer.style.opacity = "1";
   audioPlayer.artistTitleContainer.style.opacity = "1";
   audioPlayer.cover.style.height === audioPlayer.inactiveHeight
-    ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
+    ? ((audioPlayer.cover.style.height = audioPlayer.activeHeight),
+      (audioPlayer.artistTitleContainer.style.height = "50%"))
     : null;
+  // -----------PROBEERSELS---------
+  if (audioPlayer.cover.style.height === audioPlayer.menuHeight) {
+    audioPlayer.artistTitleContainer.style.height = "10%";
+  }
+  // -----------PROBEERSELS---------
   menuItems();
 }
 
@@ -275,6 +279,14 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.cover.style.height === audioPlayer.inactiveHeight
       ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
       : null;
+
+    //-----------PROBEERSELS---------
+    if (audioPlayer.cover.style.height === audioPlayer.menuHeight) {
+      audioPlayer.artistTitleContainer.style.height = "10%";
+    } else {
+      audioPlayer.artistTitleContainer.style.height = "50%";
+    }
+    // -----------PROBEERSELS---------
   } else {
     audioPlayer.audio.pause();
     audioPlayer.play.style.backgroundImage = playIcon;
@@ -286,6 +298,9 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.cover.style.height === audioPlayer.activeHeight
       ? (audioPlayer.cover.style.height = audioPlayer.inactiveHeight)
       : null;
+    // -----------PROBEERSELS---------
+    audioPlayer.artistTitleContainer.style.height = "0%";
+    // -----------PROBEERSELS---------
   }
 });
 
@@ -293,7 +308,9 @@ audioPlayer.audio.src = song[currentSong].url;
 audioPlayer.cover.style.backgroundImage = `url(${song[currentSong].cover})`;
 audioPlayer.artist.textContent = song[currentSong].artist;
 audioPlayer.title.textContent = song[currentSong].title;
-
+// -----------PROBEERSELS---------
+audioPlayer.artistTitleContainer.style.height = "0%";
+// -----------PROBEERSELS---------
 audioPlayer.shuffleButton.addEventListener("click", function () {
   audioPlayer.shuffleButton.classList.toggle("playing");
   audioPlayer.shuffleButton.classList.contains("playing")
@@ -373,44 +390,42 @@ function openMenu() {
     : ((audioPlayer.artistTitleContainer.style.height = "10%"),
       (audioPlayer.menuContainer.style.height = "100%"),
       (audioPlayer.menuContainer.style.opacity = "1"));
+  // -----------PROBEERSELS---------
+  if (audioPlayer.audio.paused) {
+    audioPlayer.artistTitleContainer.style.height = "0%";
+  }
+  // -----------PROBEERSELS---------
   menuItems();
 }
 
 function createMenuItem() {
   timer = setInterval(function () {
     const menuContainer = document.querySelector(".menu-container");
-    // Create a div element with class "menu-item"
+
     const menuItemDiv = document.createElement("div");
     menuItemDiv.className = "menu-item";
 
-    // Create a div element with class "menu-item-img" and append it to the menu-item div
     const menuItemImgDiv = document.createElement("div");
     menuItemImgDiv.className = "menu-item-img";
     menuItemDiv.appendChild(menuItemImgDiv);
 
-    // Create a div element to hold the artist and title information
     const infoDiv = document.createElement("div");
 
-    // Create a paragraph element with class "menu-item-artist" and append it to the info div
     const artistParagraph = document.createElement("p");
     artistParagraph.className = "menu-item-artist";
     infoDiv.appendChild(artistParagraph);
 
-    // Create a paragraph element with class "menu-item-title" and append it to the info div
     const titleParagraph = document.createElement("p");
     titleParagraph.className = "menu-item-title";
     infoDiv.appendChild(titleParagraph);
 
-    // Append the info div to the menu-item div
     menuItemDiv.appendChild(infoDiv);
 
-    // Create a paragraph element with class "menu-item-total-time" and append it to the menu-item div
     const totalTimeParagraph = document.createElement("p");
     totalTimeParagraph.className = "menu-item-total-time";
     totalTimeParagraph.textContent = "0:00";
     menuItemDiv.appendChild(totalTimeParagraph);
 
-    // Finally, append the menu-item div to the document body or any desired parent element
     menuContainer.appendChild(menuItemDiv);
 
     getMenuItem();
@@ -423,7 +438,9 @@ function getMenuItem() {
   audioPlayer.menuImg = document.querySelectorAll(".menu-item-img");
   audioPlayer.menuArtist = document.querySelectorAll(".menu-item-artist");
   audioPlayer.menuTitle = document.querySelectorAll(".menu-item-title");
-  audioPlayer.menuTotalTime = document.querySelectorAll(".menu-item-total-time");
+  audioPlayer.menuTotalTime = document.querySelectorAll(
+    ".menu-item-total-time"
+  );
 }
 
 function createMenuItem_Stop() {
