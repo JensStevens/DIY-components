@@ -1,5 +1,6 @@
 // TODO
 // make title that is too long scroll automatically
+// decrease artist-title-container height to 0% when menu is open and audio is paused
 
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
@@ -372,7 +373,6 @@ function openMenu() {
     : ((audioPlayer.artistTitleContainer.style.height = "10%"),
       (audioPlayer.menuContainer.style.height = "100%"),
       (audioPlayer.menuContainer.style.opacity = "1"));
-
   menuItems();
 }
 
