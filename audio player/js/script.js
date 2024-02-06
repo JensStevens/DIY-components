@@ -366,20 +366,17 @@ function openMenu() {
       : audioPlayer.activeHeight;
 
   coverHeight === audioPlayer.menuHeight
-    ? (audioPlayer.menu.classList.remove("menu-open"),
-      (audioPlayer.artistTitleContainer.style.height = "50%"),
+    ? ((audioPlayer.artistTitleContainer.style.height = "50%"),
       (audioPlayer.menuContainer.style.height = "0"),
       (audioPlayer.menuContainer.style.opacity = "0"),
       (audioPlayer.progressContainer.style.bottom = "5px"))
-    : (audioPlayer.menu.classList.add("menu-open"),
-      (audioPlayer.artistTitleContainer.style.height = "10%"),
+    : ((audioPlayer.artistTitleContainer.style.height = "10%"),
       (audioPlayer.menuContainer.style.height = "100%"),
       (audioPlayer.menuContainer.style.opacity = "1"),
       (audioPlayer.progressContainer.style.bottom = "247px"));
 
   menuItems();
 }
-
 
 // --------------PROBEERSELS----------------
 
@@ -438,7 +435,6 @@ function openMenu() {
 // }
 
 // --------------PROBEERSELS----------------
-
 
 // function menuItems() {
 //   //   geeft foutmelding op het einde van de array loop
