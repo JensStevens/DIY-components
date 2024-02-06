@@ -173,7 +173,7 @@ const song = [
   {
     title: "Nothing From Me",
     artist: "Norman Perry",
-    url: "../assets/audio/NothingFromMe.m4a",
+    url: "../assets/audio/NothingfromMe.m4a",
     cover: "../assets/img/covers/norman.jpg",
   },
   {
@@ -368,12 +368,10 @@ function openMenu() {
   coverHeight === audioPlayer.menuHeight
     ? ((audioPlayer.artistTitleContainer.style.height = "50%"),
       (audioPlayer.menuContainer.style.height = "0"),
-      (audioPlayer.menuContainer.style.opacity = "0"),
-      (audioPlayer.progressContainer.style.bottom = "5px"))
+      (audioPlayer.menuContainer.style.opacity = "0"))
     : ((audioPlayer.artistTitleContainer.style.height = "10%"),
       (audioPlayer.menuContainer.style.height = "100%"),
-      (audioPlayer.menuContainer.style.opacity = "1"),
-      (audioPlayer.progressContainer.style.bottom = "247px"));
+      (audioPlayer.menuContainer.style.opacity = "1"));
 
   menuItems();
 }
