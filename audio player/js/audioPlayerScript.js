@@ -34,6 +34,12 @@ audioPlayer.progressContainer.style.opacity = "0";
 
 const song = [
   {
+    title: "Nothing From Me",
+    artist: "Norman Perry",
+    url: "../assets/audio/NothingfromMe.m4a",
+    cover: "../assets/img/covers/norman.jpg",
+  },
+  {
     title: "Days Before Rodeo/The Prayer",
     artist: "Travis Scott",
     url: "../assets/audio/ThePrayer.mp3",
@@ -172,12 +178,6 @@ const song = [
     cover: "../assets/img/covers/lostcause.jpg",
   },
   {
-    title: "Nothing From Me",
-    artist: "Norman Perry",
-    url: "../assets/audio/NothingfromMe.m4a",
-    cover: "../assets/img/covers/norman.jpg",
-  },
-  {
     title: "Rudolph",
     artist: "Don Toliver",
     url: "../assets/audio/rudolph.mp3",
@@ -202,6 +202,7 @@ const pauseIcon = "url(../assets/img/pause.png)";
 
 let currentSong = 0;
 
+shuffleSong(song);
 createMenuItem();
 
 function changeSong() {
