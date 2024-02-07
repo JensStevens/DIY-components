@@ -223,7 +223,9 @@ function changeSong() {
     : null;
   menuItems();
   artistTitleContHeight();
-  startTextScrolling();
+  // --------------------------------------
+  // startTextScrolling();
+  // --------------------------------------
 }
 
 function updateProgressBar() {
