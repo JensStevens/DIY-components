@@ -454,9 +454,6 @@ function menuItems() {
 
 function artistTitleContHeight() {
   const coverHeight = audioPlayer.cover.style.height;
-  const menuHeight = audioPlayer.menuHeight;
-  const inactiveHeight = audioPlayer.inactiveHeight;
-  const activeHeight = audioPlayer.activeHeight;
 
   audioPlayer.artistTitleContainer.style.height =
     coverHeight === audioPlayer.inactiveHeight ||
