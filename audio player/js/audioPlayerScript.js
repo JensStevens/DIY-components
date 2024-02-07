@@ -218,15 +218,10 @@ function changeSong() {
   audioPlayer.progressContainer.style.opacity = "1";
   audioPlayer.artistTitleContainer.style.opacity = "1";
   audioPlayer.cover.style.height === audioPlayer.inactiveHeight
-    ? ((audioPlayer.cover.style.height = audioPlayer.activeHeight),
-      (audioPlayer.artistTitleContainer.style.height = "50%"))
+    ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
     : null;
-  // -----------PROBEERSELS---------
-  if (audioPlayer.cover.style.height === audioPlayer.menuHeight) {
-    audioPlayer.artistTitleContainer.style.height = "10%";
-  }
-  // -----------PROBEERSELS---------
   menuItems();
+  artistTitleContHeight();
 }
 
 function updateProgressBar() {
@@ -279,14 +274,6 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.cover.style.height === audioPlayer.inactiveHeight
       ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
       : null;
-
-    //-----------PROBEERSELS---------
-    if (audioPlayer.cover.style.height === audioPlayer.menuHeight) {
-      audioPlayer.artistTitleContainer.style.height = "10%";
-    } else {
-      audioPlayer.artistTitleContainer.style.height = "50%";
-    }
-    // -----------PROBEERSELS---------
   } else {
     audioPlayer.audio.pause();
     audioPlayer.play.style.backgroundImage = playIcon;
@@ -298,10 +285,8 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.cover.style.height === audioPlayer.activeHeight
       ? (audioPlayer.cover.style.height = audioPlayer.inactiveHeight)
       : null;
-    // -----------PROBEERSELS---------
-    audioPlayer.artistTitleContainer.style.height = "0%";
-    // -----------PROBEERSELS---------
   }
+  artistTitleContHeight();
 });
 
 audioPlayer.audio.src = song[currentSong].url;
@@ -384,17 +369,11 @@ function openMenu() {
       : audioPlayer.activeHeight;
 
   coverHeight === audioPlayer.menuHeight
-    ? ((audioPlayer.artistTitleContainer.style.height = "50%"),
-      (audioPlayer.menuContainer.style.height = "0"),
+    ? ((audioPlayer.menuContainer.style.height = "0"),
       (audioPlayer.menuContainer.style.opacity = "0"))
-    : ((audioPlayer.artistTitleContainer.style.height = "10%"),
-      (audioPlayer.menuContainer.style.height = "100%"),
+    : ((audioPlayer.menuContainer.style.height = "100%"),
       (audioPlayer.menuContainer.style.opacity = "1"));
-  // -----------PROBEERSELS---------
-  if (audioPlayer.audio.paused) {
-    audioPlayer.artistTitleContainer.style.height = "0%";
-  }
-  // -----------PROBEERSELS---------
+  artistTitleContHeight();
   menuItems();
 }
 
@@ -447,23 +426,6 @@ function createMenuItem_Stop() {
   audioPlayer.menuItem.length === song.length - 1 ? clearInterval(timer) : null;
 }
 
-// function menuItems() {
-//   //   geeft foutmelding op het einde van de array loop
-//   for (let i = 0; i < audioPlayer.menuImg.length; i++) {
-//     for (let j = 0; j < song.length; j++) {
-//       if (i === j) {
-//         j += 1;
-//         audioPlayer.menuImg[i].style.backgroundImage = `url(${
-//           song[currentSong + j].cover
-//         })`;
-//         audioPlayer.menuArtist[i].textContent = song[currentSong + j].artist;
-//         audioPlayer.menuTitle[i].textContent = song[currentSong + j].title;
-//         console.log("div " + i + " --", "song " + (currentSong + j) + " --","total songs |" + song.length + "|");
-//       }
-//     }
-//   }
-// }
-
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = (currentSong + 1 + i) % song.length;
@@ -488,5 +450,22 @@ function menuItems() {
       currentSong = songIndex;
       changeSong();
     });
+  }
+}
+
+function artistTitleContHeight() {
+  const coverHeight = audioPlayer.cover.style.height;
+  const menuHeight = audioPlayer.menuHeight;
+  const inactiveHeight = audioPlayer.inactiveHeight;
+  const activeHeight = audioPlayer.activeHeight;
+
+  if (coverHeight === inactiveHeight) {
+    audioPlayer.artistTitleContainer.style.height = "0%";
+  } else if (coverHeight === menuHeight && audioPlayer.audio.paused) {
+    audioPlayer.artistTitleContainer.style.height = "0%";
+  } else if (coverHeight === activeHeight) {
+    audioPlayer.artistTitleContainer.style.height = "50%";
+  } else if (coverHeight === menuHeight && !audioPlayer.audio.paused) {
+    audioPlayer.artistTitleContainer.style.height = "10%";
   }
 }
