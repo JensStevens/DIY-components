@@ -294,9 +294,7 @@ audioPlayer.audio.src = song[currentSong].url;
 audioPlayer.cover.style.backgroundImage = `url(${song[currentSong].cover})`;
 audioPlayer.artist.textContent = song[currentSong].artist;
 audioPlayer.title.textContent = song[currentSong].title;
-// -----------PROBEERSELS---------
-audioPlayer.artistTitleContainer.style.height = "0%";
-// -----------PROBEERSELS---------
+
 audioPlayer.shuffleButton.addEventListener("click", function () {
   audioPlayer.shuffleButton.classList.toggle("playing");
   audioPlayer.shuffleButton.classList.contains("playing")
