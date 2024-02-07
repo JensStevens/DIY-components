@@ -128,7 +128,6 @@ div:last-of-type.control-button {
 
 #artist {
   font-weight: bold;
-  margin-left: 8px;
   text-align: right;
   width: fit-content;
 }
@@ -140,10 +139,31 @@ div:last-of-type.control-button {
 
 .title-container {
   max-width: 40%;
+  display: flex;
+  justify-content: space-between;
   overflow: auto;
-  padding-right: 25px;
   white-space: nowrap;
   width: fit-content;
+}
+
+#titleCopy {
+  margin-left: 10px;
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#autoScroll p {
+  animation: scroll linear infinite;
+  animation-delay: 3s;
+
 }
 
 #progress-container {

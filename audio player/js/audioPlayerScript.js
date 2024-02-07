@@ -213,7 +213,7 @@ function changeSong() {
   audioPlayer.play.style.backgroundImage = pauseIcon;
   audioPlayer.play.style.scale = "1.1";
   audioPlayer.play.classList.add("playing");
-  audioPlayer.play.classList.remove("pause");
+  // audioPlayer.play.classList.remove("pause");
   audioPlayer.artist.textContent = currentSongData.artist;
   audioPlayer.title.textContent = currentSongData.title;
   audioPlayer.progressContainer.style.opacity = "1";
@@ -223,6 +223,7 @@ function changeSong() {
     : null;
   menuItems();
   artistTitleContHeight();
+  startTextScrolling();
 }
 
 function updateProgressBar() {
@@ -465,3 +466,37 @@ function artistTitleContHeight() {
       ? "10%"
       : audioPlayer.artistTitleContainer.style.height;
 }
+
+// function startTextScrolling() {
+//   const autoScrollDiv = document.querySelector(".title-container");
+//   const textWidth = audioPlayer.title.offsetWidth;
+//   const containerWidth = autoScrollDiv.style.maxWidth;
+//   const animationDuration = textWidth / 10;
+//   const scrollTitle = document.createElement("p");
+
+
+
+//   console.log("textWidth: " + textWidth);
+//   console.log("containerWidth: " + autoScrollDiv.style.maxWidth);
+
+//   if (textWidth > 105) {
+//     autoScrollDiv.id = "autoScroll";
+//     scrollTitle.id = "titleCopy";
+//     scrollTitle.textContent = song[currentSong].title;
+//     autoScrollDiv.appendChild(scrollTitle);
+//   } else if (autoScrollDiv.lastChild.id === "titleCopy" && textWidth > 105) {
+//     autoScrollDiv.id = "autoScroll";
+//     scrollTitle.textContent = song[currentSong].title;
+//   } else if (textWidth < 105 && autoScrollDiv.lastChild.id === "titleCopy") {
+//     autoScrollDiv.removeChild(p.lastChild);
+//     autoScrollDiv.id = "";
+//   } else {
+//     autoScrollDiv.id = "";
+//   }
+
+//   const titleCopy = document.querySelector("#titleCopy");
+
+//   audioPlayer.title.style.animationDuration = animationDuration + "s";
+//   titleCopy.style.animationDuration = animationDuration + "s";
+
+// }
