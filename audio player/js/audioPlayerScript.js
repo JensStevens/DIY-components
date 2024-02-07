@@ -458,13 +458,13 @@ function artistTitleContHeight() {
   const inactiveHeight = audioPlayer.inactiveHeight;
   const activeHeight = audioPlayer.activeHeight;
 
-  if (coverHeight === inactiveHeight) {
-    audioPlayer.artistTitleContainer.style.height = "0%";
-  } else if (coverHeight === menuHeight && audioPlayer.audio.paused) {
-    audioPlayer.artistTitleContainer.style.height = "0%";
-  } else if (coverHeight === activeHeight) {
-    audioPlayer.artistTitleContainer.style.height = "50%";
-  } else if (coverHeight === menuHeight && !audioPlayer.audio.paused) {
-    audioPlayer.artistTitleContainer.style.height = "10%";
-  }
+  audioPlayer.artistTitleContainer.style.height =
+    coverHeight === audioPlayer.inactiveHeight ||
+    (coverHeight === audioPlayer.menuHeight && audioPlayer.audio.paused)
+      ? "0%"
+      : coverHeight === audioPlayer.activeHeight
+      ? "50%"
+      : coverHeight === audioPlayer.menuHeight && !audioPlayer.audio.paused
+      ? "10%"
+      : audioPlayer.artistTitleContainer.style.height;
 }
