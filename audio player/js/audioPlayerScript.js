@@ -1,6 +1,5 @@
-// TODO
-// make title that is too long scroll automatically (1/2)
-// cry
+// TODO:
+// fix menuItem click playing the right song
 
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
@@ -88,7 +87,7 @@ const song = [
     cover: "../assets/img/covers/kanye.jpg",
   },
   {
-    title: "LOVE",
+    title: "LOVE (feat. Zacari)",
     artist: "Kendrick Lamar",
     url: "../assets/audio/LOVE.m4a",
     cover: "../assets/img/covers/damn.jpg",
@@ -166,7 +165,7 @@ const song = [
     cover: "../assets/img/covers/hoh.png",
   },
   {
-    title: "LUST (feat. Zacari)",
+    title: "LUST",
     artist: "Kendrick Lamar",
     url: "../assets/audio/LUST.m4a",
     cover: "../assets/img/covers/damn.jpg",
@@ -222,8 +221,8 @@ function changeSong() {
     : null;
   menuItems();
   artistTitleContHeight();
-  startTextScrolling();
   console.log("currentSong: " + currentSong);
+  startTextScrolling();
 }
 
 function updateProgressBar() {
@@ -379,6 +378,7 @@ function openMenu() {
 
 function createMenuItem() {
   timer = setInterval(function () {
+    console.log("hello");
     const menuContainer = document.querySelector(".menu-container");
 
     const menuItemDiv = document.createElement("div");
@@ -407,6 +407,13 @@ function createMenuItem() {
 
     menuContainer.appendChild(menuItemDiv);
 
+    // beter hier doen --> nog beetje nadenken
+    menuItemDiv.addEventListener("click", () => {
+      currentSong = 1;
+      changeSong();
+      console.log(this);
+    });
+
     getMenuItem();
     createMenuItem_Stop();
   }, 0);
@@ -425,7 +432,6 @@ function getMenuItem() {
 function createMenuItem_Stop() {
   audioPlayer.menuItem.length === song.length - 1 ? clearInterval(timer) : null;
 }
-
 
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
