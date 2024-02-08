@@ -78,12 +78,13 @@ div:last-of-type.control-button {
 .control-button:hover,
 .menu-open,
 .playing {
-  filter: invert(100%) drop-shadow(0 4px 1.2px rgba(0, 0, 0, 0.5));
+  filter: invert(100%) drop-shadow(0 3px 1.2px rgba(0, 0, 0, 0.5));
   opacity: 1;
   scale: 1.05;
 }
 
 .control-button:active {
+  filter: invert(100%) drop-shadow(0 1.5px 0.3px rgba(0, 0, 0, 0.5));
   scale: 0.95;
 }
 
