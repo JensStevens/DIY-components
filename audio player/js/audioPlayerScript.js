@@ -222,9 +222,8 @@ function changeSong() {
     : null;
   menuItems();
   artistTitleContHeight();
-  // --------------------------------------
-  // startTextScrolling();
-  // --------------------------------------
+  startTextScrolling();
+  console.log("currentSong: " + currentSong);
 }
 
 function updateProgressBar() {
@@ -288,6 +287,7 @@ audioPlayer.play.addEventListener("click", function () {
       : null;
   }
   artistTitleContHeight();
+  startTextScrolling();
 });
 
 audioPlayer.audio.src = song[currentSong].url;
@@ -426,7 +426,7 @@ function createMenuItem_Stop() {
   audioPlayer.menuItem.length === song.length - 1 ? clearInterval(timer) : null;
 }
 
-// bug zit sowieso hier ----> menuItems();
+
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = (currentSong + 1 + i) % song.length;
@@ -446,11 +446,13 @@ function menuItems() {
         totalSeconds < 10 ? "0" : ""
       }${totalSeconds}`;
     });
+// bug zit hier ---->
 
-    audioPlayer.menuItem[i].addEventListener("click", function () {
-      currentSong = songIndex;
-      changeSong();
-    });
+    // audioPlayer.menuItem[i].addEventListener("click", function () {
+    //   currentSong = songIndex;
+    //   changeSong();
+    //   console.log("currentSong: " + songIndex);
+    // });
   }
 }
 
@@ -468,36 +470,30 @@ function artistTitleContHeight() {
       : audioPlayer.artistTitleContainer.style.height;
 }
 
-// PROBLEMS FOR ANOTHER DAY
+function startTextScrolling() {
+  const autoScrollDiv = document.querySelector(".title-container");
+  const textWidth = audioPlayer.title.offsetWidth;
+  const animationDuration = textWidth / 10;
+  const scrollTitle = document.createElement("p");
 
-// function startTextScrolling() {
-//   const autoScrollDiv = document.querySelector(".title-container");
-//   const textWidth = audioPlayer.title.offsetWidth;
-//   const containerWidth = autoScrollDiv.style.maxWidth;
-//   const animationDuration = textWidth / 10;
-//   const scrollTitle = document.createElement("p");
+  if (textWidth > 110) {
+    autoScrollDiv.id = "autoScroll";
+    scrollTitle.id = "titleCopy";
+    scrollTitle.textContent = song[currentSong].title;
+    autoScrollDiv.appendChild(scrollTitle);
+  } else if (autoScrollDiv.lastChild.id === "titleCopy" && textWidth > 110) {
+    autoScrollDiv.id = "autoScroll";
+    scrollTitle.textContent = song[currentSong].title;
+  } else if (textWidth < 110 && autoScrollDiv.lastChild.id === "titleCopy") {
+    document.querySelector("#titleCopy").remove();
+    autoScrollDiv.id = "";
+  } else {
+    autoScrollDiv.id = "";
+  }
 
-//   console.log("textWidth: " + textWidth);
-//   console.log("containerWidth: " + autoScrollDiv.style.maxWidth);
+  const titleCopy = document.querySelector("#titleCopy");
 
-//   if (textWidth > 105) {
-//     autoScrollDiv.id = "autoScroll";
-//     scrollTitle.id = "titleCopy";
-//     scrollTitle.textContent = song[currentSong].title;
-//     autoScrollDiv.appendChild(scrollTitle);
-//   } else if (autoScrollDiv.lastChild.id === "titleCopy" && textWidth > 105) {
-//     autoScrollDiv.id = "autoScroll";
-//     scrollTitle.textContent = song[currentSong].title;
-//   } else if (textWidth < 105 && autoScrollDiv.lastChild.id === "titleCopy") {
-//     autoScrollDiv.removeChild(p.lastChild);
-//     autoScrollDiv.id = "";
-//   } else {
-//     autoScrollDiv.id = "";
-//   }
+  audioPlayer.title.style.animationDuration = animationDuration + "s";
+  titleCopy.style.animationDuration = animationDuration + "s";
 
-//   const titleCopy = document.querySelector("#titleCopy");
-
-//   audioPlayer.title.style.animationDuration = animationDuration + "s";
-//   titleCopy.style.animationDuration = animationDuration + "s";
-
-// }
+}
