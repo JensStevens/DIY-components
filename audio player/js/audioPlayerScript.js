@@ -1,6 +1,6 @@
 // TODO
-// make title that is too long scroll automatically
-// decrease artist-title-container height to 0% when menu is open and audio is paused
+// make title that is too long scroll automatically (1/2)
+// cry
 
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
@@ -213,7 +213,6 @@ function changeSong() {
   audioPlayer.play.style.backgroundImage = pauseIcon;
   audioPlayer.play.style.scale = "1.1";
   audioPlayer.play.classList.add("playing");
-  // audioPlayer.play.classList.remove("pause");
   audioPlayer.artist.textContent = currentSongData.artist;
   audioPlayer.title.textContent = currentSongData.title;
   audioPlayer.progressContainer.style.opacity = "1";
@@ -272,7 +271,6 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.style.backgroundImage = pauseIcon;
     audioPlayer.play.style.scale = "1.1";
     audioPlayer.play.classList.add("playing");
-    audioPlayer.play.classList.remove("pause");
     audioPlayer.progressContainer.style.opacity = "1";
     audioPlayer.artistTitleContainer.style.opacity = "1";
     audioPlayer.cover.style.height === audioPlayer.inactiveHeight
@@ -283,7 +281,6 @@ audioPlayer.play.addEventListener("click", function () {
     audioPlayer.play.style.backgroundImage = playIcon;
     audioPlayer.play.style.scale = "1";
     audioPlayer.play.classList.remove("playing");
-    audioPlayer.play.classList.add("pause");
     audioPlayer.progressContainer.style.opacity = "0";
     audioPlayer.artistTitleContainer.style.opacity = "0";
     audioPlayer.cover.style.height === audioPlayer.activeHeight
@@ -428,6 +425,7 @@ function createMenuItem_Stop() {
   audioPlayer.menuItem.length === song.length - 1 ? clearInterval(timer) : null;
 }
 
+// bug zit sowieso hier ----> menuItems();
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = (currentSong + 1 + i) % song.length;
@@ -461,7 +459,7 @@ function artistTitleContHeight() {
   audioPlayer.artistTitleContainer.style.height =
     coverHeight === audioPlayer.inactiveHeight ||
     (coverHeight === audioPlayer.menuHeight && audioPlayer.audio.paused)
-      ? "0%"
+      ? "2%"
       : coverHeight === audioPlayer.activeHeight
       ? "50%"
       : coverHeight === audioPlayer.menuHeight && !audioPlayer.audio.paused
@@ -469,14 +467,14 @@ function artistTitleContHeight() {
       : audioPlayer.artistTitleContainer.style.height;
 }
 
+// PROBLEMS FOR ANOTHER DAY
+
 // function startTextScrolling() {
 //   const autoScrollDiv = document.querySelector(".title-container");
 //   const textWidth = audioPlayer.title.offsetWidth;
 //   const containerWidth = autoScrollDiv.style.maxWidth;
 //   const animationDuration = textWidth / 10;
 //   const scrollTitle = document.createElement("p");
-
-
 
 //   console.log("textWidth: " + textWidth);
 //   console.log("containerWidth: " + autoScrollDiv.style.maxWidth);

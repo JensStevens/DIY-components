@@ -83,6 +83,10 @@ div:last-of-type.control-button {
   scale: 1.05;
 }
 
+.control-button:active {
+  scale: 0.95;
+}
+
 #play {
   background-image: url(../assets/img/play.png);
   height: var(--play-button-size);
@@ -225,16 +229,23 @@ div:last-of-type.control-button {
   border-radius: 10px;
   cursor: pointer;
   display: flex;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5);
   height: 55px;
   justify-content: space-between;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   padding: 5px;
   width: 95%;
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .menu-item:hover {
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.7);
+}
+
+.menu-item:active {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 1);
 }
 
 .menu-item-img {
