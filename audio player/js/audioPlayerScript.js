@@ -358,6 +358,7 @@ function shuffleSong(songArray) {
 
 function openMenu() {
   const coverHeight = audioPlayer.cover.style.height;
+  audioPlayer.menu.classList.toggle("playing");
 
   audioPlayer.cover.style.height =
     coverHeight === audioPlayer.inactiveHeight ||
