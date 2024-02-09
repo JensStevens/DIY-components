@@ -408,11 +408,22 @@ function createMenuItem() {
     menuContainer.appendChild(menuItemDiv);
 
     // beter hier doen --> nog beetje nadenken
-    menuItemDiv.addEventListener("click", () => {
-      currentSong = 1;
+    // menuItemDiv.addEventListener("click", () => {
+    //   currentSong = 1;
+    //   changeSong();
+    //   console.log(this);
+    // });
+
+    // chat gpt code
+
+    menuItemDiv.addEventListener("click", function (event) {
+      const menuItemIndex = Array.from(this.parentNode.children).indexOf(this);
+      currentSong = menuItemIndex;
+      console.log(currentSong);
       changeSong();
-      console.log(this);
     });
+
+    // -----------------------------------------------------------------
 
     getMenuItem();
     createMenuItem_Stop();
@@ -452,7 +463,7 @@ function menuItems() {
         totalSeconds < 10 ? "0" : ""
       }${totalSeconds}`;
     });
-// bug zit hier ---->
+    // bug zit hier ---->
 
     // audioPlayer.menuItem[i].addEventListener("click", function () {
     //   currentSong = songIndex;
@@ -480,26 +491,21 @@ function startTextScrolling() {
   const autoScrollDiv = document.querySelector(".title-container");
   const textWidth = audioPlayer.title.offsetWidth;
   const animationDuration = textWidth / 10;
-  const scrollTitle = document.createElement("p");
+  const scrollTitle = document.querySelector("#titleCopy");
 
   if (textWidth > 110) {
     autoScrollDiv.id = "autoScroll";
-    scrollTitle.id = "titleCopy";
     scrollTitle.textContent = song[currentSong].title;
-    autoScrollDiv.appendChild(scrollTitle);
-  } else if (autoScrollDiv.lastChild.id === "titleCopy" && textWidth > 110) {
-    autoScrollDiv.id = "autoScroll";
-    scrollTitle.textContent = song[currentSong].title;
-  } else if (textWidth < 110 && autoScrollDiv.lastChild.id === "titleCopy") {
-    document.querySelector("#titleCopy").remove();
-    autoScrollDiv.id = "";
+    scrollTitle.style.width = textWidth + "px";
+    scrollTitle.style.marginLeft = "10px";
   } else {
     autoScrollDiv.id = "";
+    scrollTitle.textContent = "";
+    scrollTitle.style.width = "0";
+    scrollTitle.style.marginLeft = "0";
   }
 
-  const titleCopy = document.querySelector("#titleCopy");
-
   audioPlayer.title.style.animationDuration = animationDuration + "s";
-  titleCopy.style.animationDuration = animationDuration + "s";
+  scrollTitle.style.animationDuration = animationDuration + "s";
 
 }

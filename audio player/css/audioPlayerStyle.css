@@ -152,7 +152,7 @@ div:last-of-type.control-button {
 }
 
 #titleCopy {
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 @keyframes scroll {
@@ -272,7 +272,7 @@ div:last-of-type.control-button {
 }
 
 .menu-item-title {
-  font-weight: light;
+  font-weight: 350;
   font-style: italic;
 }
 
