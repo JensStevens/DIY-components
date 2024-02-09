@@ -498,6 +498,9 @@ function startTextScrolling() {
     scrollTitle.textContent = song[currentSong].title;
     scrollTitle.style.width = textWidth + "px";
     scrollTitle.style.marginLeft = "10px";
+    if (audioPlayer.audio.paused) {
+      autoScrollDiv.id = "";
+    }
   } else {
     autoScrollDiv.id = "";
     scrollTitle.textContent = "";
@@ -507,5 +510,4 @@ function startTextScrolling() {
 
   audioPlayer.title.style.animationDuration = animationDuration + "s";
   scrollTitle.style.animationDuration = animationDuration + "s";
-
 }
