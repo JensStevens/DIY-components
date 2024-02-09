@@ -229,7 +229,7 @@ div:last-of-type.control-button {
   cursor: pointer;
   display: flex;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5);
-  height: 55px;
+  height: 60px;
   justify-content: space-between;
   margin-bottom: 4px;
   padding: 5px;
@@ -252,10 +252,12 @@ div:last-of-type.control-button {
   background-position: right;
   background-size: cover;
   border-radius: 5px;
-  height: 40px;
+  box-shadow: inset -1.5px 2px 3px rgba(255, 255, 255, 0.1),
+    0 2px 1px rgba(0, 0, 0, 0.3);
+  height: 45px;
   margin-right: 5px;
   transition: background-image 0.3s ease-in-out 0.1s;
-  width: 40px;
+  width: 45px;
 }
 
 .menu-item div:nth-child(2) {
@@ -267,6 +269,11 @@ div:last-of-type.control-button {
 .menu-item-total-time {
   margin: 1px;
   font-size: 12px;
+}
+
+.menu-item-title {
+  font-weight: light;
+  font-style: italic;
 }
 
 .menu-item-artist,
