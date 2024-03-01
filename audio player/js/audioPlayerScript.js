@@ -1,3 +1,6 @@
+// TODO:
+// 1. When clicking menu item it goes to the correct song but the playlist doesnt change correctly
+
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
   artist: document.querySelector("#artist"),
@@ -255,7 +258,8 @@ audioPlayer.rewind.addEventListener("click", function () {
 });
 
 audioPlayer.forward.addEventListener("click", function () {
-  currentSong = currentSong < song.length - 1 ? currentSong + 1 : 0;
+  // currentSong = currentSong < song.length - 1 ? currentSong + 1 : 0;
+  currentSong = audioPlayer.menuItem[0].getAttribute("data-song-index");
   changeSong();
 });
 
@@ -407,6 +411,9 @@ function createMenuItem() {
       const menuItemIndex = this.getAttribute("data-song-index");
       currentSong = menuItemIndex;
       changeSong();
+      console.log(song);
+      console.log(menuItemIndex);
+      menuItems();
     });
 
     getMenuItem();
@@ -432,6 +439,7 @@ function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = (currentSong + 1 + i) % song.length;
     audioPlayer.menuItem[i].setAttribute("data-song-index", songIndex);
+    // wss hier ergens dat het misloopt, indexatie van divs.
 
     audioPlayer.menuImg[
       i
