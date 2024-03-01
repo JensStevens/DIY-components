@@ -1,6 +1,3 @@
-// TODO:
-// fix menuItem click playing the right song
-
 const audioPlayer = {
   cover: document.querySelector("#audio-player"),
   artist: document.querySelector("#artist"),
@@ -221,7 +218,6 @@ function changeSong() {
     : null;
   menuItems();
   artistTitleContHeight();
-  console.log("currentSong: " + currentSong);
   startTextScrolling();
 }
 
@@ -407,23 +403,11 @@ function createMenuItem() {
 
     menuContainer.appendChild(menuItemDiv);
 
-    // beter hier doen --> nog beetje nadenken
-    // menuItemDiv.addEventListener("click", () => {
-    //   currentSong = 1;
-    //   changeSong();
-    //   console.log(this);
-    // });
-
-    // chat gpt code
-
     menuItemDiv.addEventListener("click", function (event) {
-      const menuItemIndex = Array.from(this.parentNode.children).indexOf(this);
+      const menuItemIndex = this.getAttribute("data-song-index");
       currentSong = menuItemIndex;
-      console.log(currentSong);
       changeSong();
     });
-
-    // -----------------------------------------------------------------
 
     getMenuItem();
     createMenuItem_Stop();
@@ -447,6 +431,7 @@ function createMenuItem_Stop() {
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = (currentSong + 1 + i) % song.length;
+    audioPlayer.menuItem[i].setAttribute("data-song-index", songIndex);
 
     audioPlayer.menuImg[
       i
@@ -463,13 +448,6 @@ function menuItems() {
         totalSeconds < 10 ? "0" : ""
       }${totalSeconds}`;
     });
-    // bug zit hier ---->
-
-    // audioPlayer.menuItem[i].addEventListener("click", function () {
-    //   currentSong = songIndex;
-    //   changeSong();
-    //   console.log("currentSong: " + songIndex);
-    // });
   }
 }
 
