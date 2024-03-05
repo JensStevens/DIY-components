@@ -273,7 +273,7 @@ div:last-of-type.control-button {
 
 .menu-item-title {
   font-weight: 350;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .menu-item-artist,

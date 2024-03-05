@@ -194,6 +194,36 @@ const song = [
     url: "../assets/audio/ASTROTHUNDER.m4a",
     cover: "../assets/img/covers/astroworld.jpg",
   },
+  {
+    title: "Fuk Sumn (feat. Playboi Carti & Travis Scott)",
+    artist: "Kanye West & Ty$",
+    url: "../assets/audio/FukSumn.m4a",
+    cover: "../assets/img/covers/vultures.jpg",
+  },
+  {
+    title: "Keys To My Life",
+    artist: "Kanye West & Ty$",
+    url: "../assets/audio/KeysToMyLife.m4a",
+    cover: "../assets/img/covers/vultures.jpg",
+  },
+  {
+    title: "Bought The Earth",
+    artist: "Yeat",
+    url: "../assets/audio/BoughtTheEarth.m4a",
+    cover: "../assets/img/covers/2093.jpg",
+  },
+  {
+    title: "As We Speak (feat. Drake)",
+    artist: "Yeat",
+    url: "../assets/audio/AsWeSpeak.m4a",
+    cover: "../assets/img/covers/2093.jpg",
+  },
+  {
+    title: "Lyfestylë (feat. Lil Wayne)",
+    artist: "Yeat",
+    url: "../assets/audio/Lyfestylë.m4a",
+    cover: "../assets/img/covers/2093.jpg",
+  },
 ];
 
 const playIcon = "url(../assets/img/play.png)";
@@ -258,8 +288,7 @@ audioPlayer.rewind.addEventListener("click", function () {
 });
 
 audioPlayer.forward.addEventListener("click", function () {
-  // currentSong = currentSong < song.length - 1 ? currentSong + 1 : 0;
-  currentSong = audioPlayer.menuItem[0].getAttribute("data-song-index");
+  currentSong = currentSong < song.length - 1 ? currentSong + 1 : 0;
   changeSong();
 });
 
@@ -412,8 +441,7 @@ function createMenuItem() {
       currentSong = menuItemIndex;
       changeSong();
       console.log(song);
-      console.log(menuItemIndex);
-      menuItems();
+      console.log("song number " + menuItemIndex);
     });
 
     getMenuItem();
@@ -439,6 +467,7 @@ function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = (currentSong + 1 + i) % song.length;
     audioPlayer.menuItem[i].setAttribute("data-song-index", songIndex);
+    console.log("data-song-index " + songIndex);
     // wss hier ergens dat het misloopt, indexatie van divs.
 
     audioPlayer.menuImg[
