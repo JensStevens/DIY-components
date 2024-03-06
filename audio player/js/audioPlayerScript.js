@@ -273,6 +273,17 @@ function updateProgressBar() {
   const progress = (currentTime / duration) * 100;
   audioPlayer.progressBar.style.width = `${progress}%`;
 
+  // when clicking the progress bar to go to a certain point in the song
+  document
+    .querySelector(".progress")
+    .addEventListener("click", function (event) {
+      const progressBarWidth = this.offsetWidth;
+      const clickX = event.offsetX;
+      const percentClicked = clickX / progressBarWidth;
+      const seekTime = duration * percentClicked;
+      audioPlayer.audio.currentTime = seekTime;
+    });
+
   if (currentTime === duration) {
     currentSong++;
     if (currentSong >= song.length) {
