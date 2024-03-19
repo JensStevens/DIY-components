@@ -250,6 +250,7 @@ function changeSong() {
     ? (audioPlayer.cover.style.height = audioPlayer.activeHeight)
     : null;
   menuItems();
+  updateMenu();
   artistTitleContHeight();
   startTextScrolling();
 }
@@ -471,12 +472,12 @@ function getMenuItem() {
 }
 
 function createMenuItem_Stop() {
-  audioPlayer.menuItem.length === song.length - 1 ? clearInterval(timer) : null;
+  audioPlayer.menuItem.length === song.length ? clearInterval(timer) : null;
 }
 
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
-    const songIndex = (currentSong + 1 + i) % song.length;
+    const songIndex = (i) % song.length;
     audioPlayer.menuItem[i].setAttribute("data-song-index", songIndex);
     console.log("data-song-index " + songIndex);
     // wss hier ergens dat het misloopt, indexatie van divs.
@@ -497,6 +498,13 @@ function menuItems() {
       }${totalSeconds}`;
     });
   }
+}
+
+function updateMenu () {
+  for (let i = 0; i < song.length; i++) {
+    audioPlayer.menuItem[i].style.display = "flex";
+  }
+  audioPlayer.menuItem[currentSong].style.display = "none";
 }
 
 function artistTitleContHeight() {

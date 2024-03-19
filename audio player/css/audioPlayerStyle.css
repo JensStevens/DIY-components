@@ -147,6 +147,7 @@ div:last-of-type.control-button {
   display: flex;
   justify-content: space-between;
   overflow: auto;
+  pointer-events: none;
   white-space: nowrap;
   width: fit-content;
 }
