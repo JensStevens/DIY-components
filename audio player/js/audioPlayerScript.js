@@ -282,7 +282,9 @@ function updateProgressBar() {
       const clickX = event.offsetX;
       const percentClicked = clickX / progressBarWidth;
       const seekTime = duration * percentClicked;
-      audioPlayer.audio.currentTime = seekTime;
+      if (isFinite(seekTime)) {
+        audioPlayer.audio.currentTime = seekTime;
+      }
     });
 
   if (currentTime === duration) {
@@ -477,7 +479,7 @@ function createMenuItem_Stop() {
 
 function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
-    const songIndex = (i) % song.length;
+    const songIndex = i % song.length;
     audioPlayer.menuItem[i].setAttribute("data-song-index", songIndex);
     console.log("data-song-index " + songIndex);
     // wss hier ergens dat het misloopt, indexatie van divs.
@@ -500,7 +502,7 @@ function menuItems() {
   }
 }
 
-function updateMenu () {
+function updateMenu() {
   for (let i = 0; i < song.length; i++) {
     audioPlayer.menuItem[i].style.display = "flex";
   }
