@@ -224,6 +224,36 @@ const song = [
     url: "../assets/audio/Lyfestylë.m4a",
     cover: "../assets/img/covers/2093.jpg",
   },
+  {
+    title: "Blue Green Red",
+    artist: "Drake",
+    url: "../assets/audio/BlueGreenRed.mp3",
+    cover: "../assets/img/covers/100gigs.png",
+  },
+  {
+    title: "Circadian Rhythm",
+    artist: "Drake",
+    url: "../assets/audio/CircadianRhythm.mp3",
+    cover: "../assets/img/covers/100gigs.png",
+  },
+  {
+    title: "Housekeeping Knows (feat. Latto)",
+    artist: "Drake",
+    url: "../assets/audio/HousekeepingKnows.mp3",
+    cover: "../assets/img/covers/100gigs.png",
+  },
+  {
+    title: "It's Up (feat. Young Thug & 21 Savage)",
+    artist: "Drake",
+    url: "../assets/audio/ItsUp.mp3",
+    cover: "../assets/img/covers/100gigs.png",
+  },
+  {
+    title: "No Face (feat. Playboi Carti)",
+    artist: "Drake",
+    url: "../assets/audio/NoFace.mp3",
+    cover: "../assets/img/covers/100gigs.png",
+  },
 ];
 
 const playIcon = "url(../assets/img/play.png)";
