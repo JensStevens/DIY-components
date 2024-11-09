@@ -32,7 +32,7 @@ body {
 
 #audio-player-controls {
   background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(0.5px);
+  backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
   height: 100%;
