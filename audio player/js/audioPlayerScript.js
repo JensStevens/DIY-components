@@ -242,6 +242,12 @@ const song = [
     url: "../assets/audio/NoFace.mp3",
     cover: "../assets/img/covers/100gigs.png",
   },
+  {
+    title: "Beso (Fruta Fresca)",
+    artist: "Wakyin & Carlos Vives",
+    url: "../assets/audio/Beso(Fruta Fresca).mp3",
+    cover: "../assets/img/covers/beso.jpg",
+  },
 ];
 
 const playIcon = "url(../assets/img/play.png)";
@@ -521,7 +527,7 @@ function updateMenu() {
     audioPlayer.menuItem[i].style.display = "flex";
   }
   audioPlayer.menuItem[currentSong].style.display = "none";
-  
+
   const menuContainer = document.querySelector(".menu-container");
   const menuItems = Array.from(document.querySelectorAll(".menu-item"));
 
