@@ -87,12 +87,6 @@ const song = [
     cover: "../assets/img/covers/kanye.jpg",
   },
   {
-    title: "LOVE (feat. Zacari)",
-    artist: "Kendrick Lamar",
-    url: "../assets/audio/LOVE.m4a",
-    cover: "../assets/img/covers/damn.jpg",
-  },
-  {
     title: "R.I.P. SCREW",
     artist: "Travis Scott",
     url: "../assets/audio/ripSCREW.m4a",
@@ -163,12 +157,6 @@ const song = [
     artist: "Don Toliver",
     url: "../assets/audio/HeavenOrHell.m4a",
     cover: "../assets/img/covers/hoh.png",
-  },
-  {
-    title: "LUST",
-    artist: "Kendrick Lamar",
-    url: "../assets/audio/LUST.m4a",
-    cover: "../assets/img/covers/damn.jpg",
   },
   {
     title: "I-95",
@@ -360,6 +348,7 @@ audioPlayer.play.addEventListener("click", function () {
   }
   artistTitleContHeight();
   startTextScrolling();
+  updateMenu();
 });
 
 audioPlayer.audio.src = song[currentSong].url;
@@ -451,7 +440,6 @@ function openMenu() {
 
 function createMenuItem() {
   timer = setInterval(function () {
-    console.log("hello");
     const menuContainer = document.querySelector(".menu-container");
 
     const menuItemDiv = document.createElement("div");
@@ -482,10 +470,8 @@ function createMenuItem() {
 
     menuItemDiv.addEventListener("click", function (event) {
       const menuItemIndex = this.getAttribute("data-song-index");
-      currentSong = menuItemIndex;
+      currentSong = parseInt(menuItemIndex);
       changeSong();
-      console.log(song);
-      console.log("song number " + menuItemIndex);
     });
 
     getMenuItem();
@@ -511,8 +497,6 @@ function menuItems() {
   for (let i = 0; i < audioPlayer.menuItem.length; i++) {
     const songIndex = i % song.length;
     audioPlayer.menuItem[i].setAttribute("data-song-index", songIndex);
-    console.log("data-song-index " + songIndex);
-    // wss hier ergens dat het misloopt, indexatie van divs.
 
     audioPlayer.menuImg[
       i
@@ -537,6 +521,21 @@ function updateMenu() {
     audioPlayer.menuItem[i].style.display = "flex";
   }
   audioPlayer.menuItem[currentSong].style.display = "none";
+  
+  const menuContainer = document.querySelector(".menu-container");
+  const menuItems = Array.from(document.querySelectorAll(".menu-item"));
+
+  menuItems.sort((a, b) => {
+    const indexA = parseInt(a.getAttribute("data-song-index"));
+    const indexB = parseInt(b.getAttribute("data-song-index"));
+    const offsetA = (indexA - currentSong + song.length) % song.length;
+    const offsetB = (indexB - currentSong + song.length) % song.length;
+    return offsetA - offsetB;
+  });
+
+  menuContainer.innerHTML = "";
+  menuItems.forEach((item) => menuContainer.appendChild(item));
+  menuContainer.scrollTop = 0;
 }
 
 function artistTitleContHeight() {
