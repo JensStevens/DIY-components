@@ -165,10 +165,10 @@ div:last-of-type.control-button {
   }
 }
 
-#autoScroll p {
+/* #autoScroll p {
   animation: scroll linear infinite;
   animation-delay: 2s;
-}
+} */
 
 #progress-container {
   align-items: center;

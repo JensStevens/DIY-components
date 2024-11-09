@@ -558,27 +558,53 @@ function artistTitleContHeight() {
       : audioPlayer.artistTitleContainer.style.height;
 }
 
+// function startTextScrolling() {
+//   const autoScrollDiv = document.querySelector(".title-container");
+//   const textWidth = audioPlayer.title.offsetWidth;
+//   const animationDuration = textWidth / 10;
+//   const scrollTitle = document.querySelector("#titleCopy");
+
+//   if (textWidth > autoScrollDiv.offsetWidth) {
+//     autoScrollDiv.id = "autoScroll";
+//     scrollTitle.textContent = song[currentSong].title;
+//     scrollTitle.style.width = textWidth + "px";
+//     scrollTitle.style.marginLeft = "10px";
+//     if (audioPlayer.audio.paused) {
+//       autoScrollDiv.id = "";
+//     }
+//   } else {
+//     autoScrollDiv.id = "";
+//     scrollTitle.textContent = "";
+//     scrollTitle.style.width = "0";
+//     scrollTitle.style.marginLeft = "0";
+//   }
+
+//   audioPlayer.title.style.animationDuration = animationDuration + "s";
+//   scrollTitle.style.animationDuration = animationDuration + "s";
+// }
+
 function startTextScrolling() {
-  const autoScrollDiv = document.querySelector(".title-container");
-  const textWidth = audioPlayer.title.offsetWidth;
-  const animationDuration = textWidth / 10;
-  const scrollTitle = document.querySelector("#titleCopy");
+  const titleContainer = document.querySelector(".title-container");
+  const titleCopyElement = document.querySelector("#titleCopy");
+  console.log(audioPlayer.title.offsetWidth);
 
-  if (textWidth > 110) {
-    autoScrollDiv.id = "autoScroll";
-    scrollTitle.textContent = song[currentSong].title;
-    scrollTitle.style.width = textWidth + "px";
-    scrollTitle.style.marginLeft = "10px";
-    if (audioPlayer.audio.paused) {
-      autoScrollDiv.id = "";
-    }
+  if (audioPlayer.title.offsetWidth > titleContainer.offsetWidth) {
+    titleCopyElement.textContent = song[currentSong].title;
+    titleCopyElement.style.marginLeft = "10px";
+    audioPlayer.title.style.animation = "scroll linear infinite";
+    audioPlayer.title.style.animationDelay = "2s";
+    audioPlayer.title.style.animationDuration = `${
+      audioPlayer.title.offsetWidth / 10
+    }s`;
+    titleCopyElement.style.animation = "scroll linear infinite";
+    titleCopyElement.style.animationDelay = "2s";
+    titleCopyElement.style.animationDuration = `${
+      titleCopyElement.offsetWidth / 10
+    }s`;
   } else {
-    autoScrollDiv.id = "";
-    scrollTitle.textContent = "";
-    scrollTitle.style.width = "0";
-    scrollTitle.style.marginLeft = "0";
+    audioPlayer.title.style.animation = "none";
+    titleCopyElement.style.animation = "none";
+    titleCopyElement.textContent = "";
+    titleCopyElement.style.marginLeft = "0";
   }
-
-  audioPlayer.title.style.animationDuration = animationDuration + "s";
-  scrollTitle.style.animationDuration = animationDuration + "s";
 }
