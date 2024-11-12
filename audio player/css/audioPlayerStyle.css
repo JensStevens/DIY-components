@@ -43,7 +43,7 @@ body {
 }
 
 #audio-player-controls:has(div.menu-open),
-#audio-player-controls:has(div.playing) {
+#audio-player-controls:has(div#play.playing) {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.5px);
 }
