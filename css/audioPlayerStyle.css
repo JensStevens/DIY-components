@@ -213,7 +213,7 @@ div:last-of-type.control-button {
   flex-direction: column;
   height: 0;
   justify-content: space-between;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   overflow: scroll;
   opacity: 0;
   transition: opacity 0.3s ease-in-out, height 0.3s ease-out;
