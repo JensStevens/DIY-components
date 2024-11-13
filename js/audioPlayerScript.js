@@ -283,17 +283,23 @@ function updateProgressBar() {
   const currentTime = audioPlayer.audio.currentTime;
   const duration = audioPlayer.audio.duration;
 
-  const currentMinutes = Math.floor(currentTime / 60);
-  const currentSeconds = Math.floor(currentTime % 60);
-  const totalMinutes = Math.floor(duration / 60);
-  const totalSeconds = Math.floor(duration % 60);
+  if (isFinite(duration)) {
+    const currentMinutes = Math.floor(currentTime / 60);
+    const currentSeconds = Math.floor(currentTime % 60);
+    const totalMinutes = Math.floor(duration / 60);
+    const totalSeconds = Math.floor(duration % 60);
 
-  audioPlayer.currentTimeDisplay.textContent = `${currentMinutes}:${
-    currentSeconds < 10 ? "0" : ""
-  }${currentSeconds}`;
-  audioPlayer.totalTimeDisplay.textContent = `${totalMinutes}:${
-    totalSeconds < 10 ? "0" : ""
-  }${totalSeconds}`;
+    audioPlayer.currentTimeDisplay.textContent = `${currentMinutes}:${
+      currentSeconds < 10 ? "0" : ""
+    }${currentSeconds}`;
+    audioPlayer.totalTimeDisplay.style.opacity = "1";
+    audioPlayer.totalTimeDisplay.textContent = `${totalMinutes}:${
+      totalSeconds < 10 ? "0" : ""
+    }${totalSeconds}`;
+  } else {
+    audioPlayer.totalTimeDisplay.style.transition = "opacity 0.1s ease-in";
+    audioPlayer.totalTimeDisplay.style.opacity = "0";
+  }
 
   const progress = (currentTime / duration) * 100;
   audioPlayer.progressBar.style.width = `${progress}%`;
