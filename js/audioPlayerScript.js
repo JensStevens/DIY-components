@@ -592,7 +592,6 @@ function artistTitleContHeight() {
 function startTextScrolling() {
   const titleContainer = document.querySelector(".title-container");
   const titleCopyElement = document.querySelector("#titleCopy");
-  console.log(audioPlayer.title.offsetWidth);
 
   if (audioPlayer.title.offsetWidth > titleContainer.offsetWidth) {
     titleCopyElement.textContent = song[currentSong].title;

@@ -173,7 +173,8 @@ div:last-of-type.control-button {
 #progress-container {
   align-items: center;
   display: flex;
-  justify-content: center;
+  /* center naar space-between */
+  justify-content: space-between;
   margin: 0 auto;
   opacity: 1;
   transition: opacity 0.2s ease-out;
@@ -184,6 +185,8 @@ div:last-of-type.control-button {
 #current-time {
   font-size: 8px;
   margin: -20px 4px 0;
+  /* width toegevoegd */
+  width: 25px;
 }
 
 .progress {
